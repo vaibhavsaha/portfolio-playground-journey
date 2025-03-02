@@ -20,7 +20,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   }, [])
   
   // Get the current theme state
-  const isDark = mounted ? theme === "dark" : true
+  const isDark = mounted ? theme === "dark" : false
   
   const handleToggle = () => {
     setTheme(isDark ? "light" : "dark")

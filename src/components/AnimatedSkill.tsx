@@ -31,7 +31,7 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="relative z-10 text-sm font-medium">{skill}</div>
+      <div className="relative z-10 text-sm font-medium text-foreground">{skill}</div>
       
       {isHovered && (
         <div className="absolute inset-0 pointer-events-none">

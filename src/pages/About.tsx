@@ -14,7 +14,7 @@ const About = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="fixed inset-0 z-0 bg-black">
+      <div className="fixed inset-0 z-0 bg-background">
         <SparklesCore
           id="tsparticlesfullpage"
           background="transparent"
