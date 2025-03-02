@@ -91,7 +91,7 @@ const Index = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className={`text-6xl sm:text-7xl font-bold block ${roles[currentRoleIndex].color}`}
+                    className={`text-7xl sm:text-8xl font-bold block ${roles[currentRoleIndex].color}`}
                   >
                     {roles[currentRoleIndex].text}
                   </motion.span>
