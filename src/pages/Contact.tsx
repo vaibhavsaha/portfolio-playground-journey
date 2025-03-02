@@ -75,7 +75,7 @@ const Contact = () => {
             <p className="mb-8 text-2xl">I'd love to hear from you! Feel free to reach out through any of these channels:</p>
             
             <div className="grid gap-8">
-              <div className="flex justify-center space-x-8 my-6">
+              <div className="flex justify-center space-x-4 my-6">
                 <TooltipProvider>
                   {socialIcons.map((social, index) => (
                     <Tooltip key={index}>
@@ -112,36 +112,6 @@ const Contact = () => {
                 >
                   <span className="font-medium text-2xl">Email:</span>
                   <span className="ml-4 text-2xl">simranatsingh7j@gmail.com</span>
-                </a>
-              </MagicCard>
-              
-              <MagicCard 
-                className="p-8 flex items-center hover:bg-foreground/5 transition-colors duration-300"
-                gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-              >
-                <a 
-                  href="https://www.linkedin.com/in/simran-singh-0562a7222/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center text-2xl"
-                >
-                  <span className="font-medium text-2xl">LinkedIn:</span>
-                  <span className="ml-4 text-2xl">Simran Singh</span>
-                </a>
-              </MagicCard>
-              
-              <MagicCard 
-                className="p-8 flex items-center hover:bg-foreground/5 transition-colors duration-300"
-                gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-              >
-                <a 
-                  href="https://x.com/SimranTwt_" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center text-2xl"
-                >
-                  <span className="font-medium text-2xl">Twitter:</span>
-                  <span className="ml-4 text-2xl">@SimranTwt_</span>
                 </a>
               </MagicCard>
             </div>

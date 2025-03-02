@@ -106,7 +106,7 @@ const Index = () => {
               >
                 <Link to="/contact">
                   <Button className="bg-violet-100 dark:bg-violet-900 hover:bg-violet-200 dark:hover:bg-violet-800 text-violet-600 dark:text-violet-300 border border-violet-300 dark:border-violet-700 transition-all duration-300">
-                    Contact Me
+                    Reach Out
                   </Button>
                 </Link>
               </motion.div>
