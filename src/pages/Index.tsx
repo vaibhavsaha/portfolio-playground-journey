@@ -52,7 +52,7 @@ const Index = () => {
             className="relative pt-24 min-h-screen flex items-center z-10"
           >
             <motion.div 
-              className="flex flex-col items-start justify-center px-4 max-w-3xl ml-8 sm:ml-16 md:ml-24 lg:ml-32"
+              className="flex flex-col items-start justify-center px-4 max-w-3xl mx-auto md:ml-24 lg:ml-32"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -69,7 +69,7 @@ const Index = () => {
               </motion.div>
               
               <motion.h1 
-                className="text-5xl sm:text-6xl font-bold mb-8 tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-8 tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -83,15 +83,15 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <span className="text-2xl mb-3">I'm a</span>
-                <div className="h-24">
+                <span className="text-xl sm:text-2xl mb-2 sm:mb-3">I'm a</span>
+                <div className="h-16 sm:h-24">
                   <motion.span
                     key={currentRoleIndex}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className={`text-7xl sm:text-8xl font-bold block ${roles[currentRoleIndex].color}`}
+                    className={`text-5xl sm:text-7xl md:text-8xl font-bold block ${roles[currentRoleIndex].color}`}
                   >
                     {roles[currentRoleIndex].text}
                   </motion.span>
@@ -102,7 +102,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
-                className="mt-8"
+                className="mt-6 sm:mt-8"
               >
                 <Link to="/contact">
                   <Button className="bg-violet-100 dark:bg-violet-900 hover:bg-violet-200 dark:hover:bg-violet-800 text-violet-600 dark:text-violet-300 border border-violet-300 dark:border-violet-700 transition-all duration-300">
