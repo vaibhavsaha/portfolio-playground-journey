@@ -1,30 +1,33 @@
 
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Mail, Github } from 'lucide-react';
+import { LinkedinIcon } from '@/components/ui/linkedin';
+import { TwitterIcon } from '@/components/ui/twitter';
+import { GithubIcon } from '@/components/ui/github';
+import { MailIcon } from '@/components/ui/mail';
 
 const SocialLinks = () => {
   const socialLinks = [
     { 
       id: 'linkedin', 
-      icon: <Linkedin className="w-5 h-5" />, 
+      icon: <LinkedinIcon />, 
       url: 'https://www.linkedin.com/in/simran-singh-0562a7222/',
       label: 'LinkedIn'
     },
     { 
       id: 'twitter', 
-      icon: <Twitter className="w-5 h-5" />, 
+      icon: <TwitterIcon />, 
       url: 'https://x.com/SimranTwt_',
       label: 'Twitter'
     },
     { 
       id: 'github', 
-      icon: <Github className="w-5 h-5" />, 
+      icon: <GithubIcon />, 
       url: 'https://github.com/Simranatsingh',
       label: 'GitHub'
     },
     { 
       id: 'email', 
-      icon: <Mail className="w-5 h-5" />, 
+      icon: <MailIcon />, 
       url: 'mailto:simranatsingh7j@gmail.com',
       label: 'Email'
     },
@@ -63,7 +66,7 @@ const SocialLinks = () => {
             variants={item}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="glass-morphism w-12 h-12 flex items-center justify-center rounded-full hover:text-primary transition-colors duration-300"
+            className="glass-morphism rounded-full"
           >
             {link.icon}
           </motion.a>

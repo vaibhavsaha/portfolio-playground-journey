@@ -43,7 +43,7 @@ const Index = () => {
           </div>
           
           <Navbar />
-          <SocialLinks className="fixed bottom-8 right-8 z-20" />
+          <SocialLinks />
           
           <motion.main 
             initial={{ opacity: 0 }}
