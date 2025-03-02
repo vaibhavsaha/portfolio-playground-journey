@@ -1,29 +1,33 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useTheme } from "next-themes"
 
 interface ThemeToggleProps {
   className?: string
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const [isDark, setIsDark] = useState(true)
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   
-  // Update body class when theme changes
+  // Only show the toggle after mounting to avoid hydration mismatch
   useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [isDark])
-
+    setMounted(true)
+  }, [])
+  
+  // Get the current theme state
+  const isDark = mounted ? theme === "dark" : true
+  
   const handleToggle = () => {
-    setIsDark(!isDark);
+    setTheme(isDark ? "light" : "dark")
   };
+
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) return null
 
   return (
     <div
