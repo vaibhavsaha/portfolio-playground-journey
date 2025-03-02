@@ -48,14 +48,14 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <span className="px-3 py-1 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm text-sm font-medium">
+            <span className="px-3 py-1 rounded-full bg-foreground/10 backdrop-blur-sm text-sm font-medium text-white">
               About Me
             </span>
           </motion.div>
           
           <TextGenerateEffect
             words="Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!"
-            className="text-xl"
+            className="text-xl text-white"
             duration={1.5}
             filter={true}
           />
@@ -66,7 +66,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.8 }}
           >
-            <h3 className="text-lg font-medium mb-3">Skills</h3>
+            <h3 className="text-lg font-medium mb-3 text-white">Skills</h3>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, index) => (
                 <AnimatedSkill key={index} skill={skill} index={index} />

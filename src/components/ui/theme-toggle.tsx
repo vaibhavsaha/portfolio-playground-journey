@@ -1,8 +1,8 @@
 
 "use client"
 
-import { useEffect, useState } from "react"
-import { Moon, Sun } from "lucide-react"
+import { useEffect } from "react"
+import { Moon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 
@@ -34,14 +34,6 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         >
           <Moon 
             className="w-4 h-4 text-white" 
-            strokeWidth={1.5}
-          />
-        </div>
-        <div
-          className="flex justify-center items-center w-6 h-6 rounded-full transition-transform duration-300 bg-transparent"
-        >
-          <Sun 
-            className="w-4 h-4 text-gray-500" 
             strokeWidth={1.5}
           />
         </div>
