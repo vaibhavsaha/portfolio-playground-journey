@@ -20,10 +20,10 @@ const Index = () => {
   ];
   
   useEffect(() => {
-    // Change role every 3 seconds
+    // Change role every 2 seconds instead of 3
     const interval = setInterval(() => {
       setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-    }, 3000);
+    }, 2000);
     
     return () => clearInterval(interval);
   }, []);
