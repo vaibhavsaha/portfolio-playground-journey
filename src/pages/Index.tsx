@@ -6,10 +6,10 @@ import IntroAnimation from '@/components/IntroAnimation';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { Link } from 'react-router-dom';
-import { MagnetizeButton } from '@/components/ui/magnetize-button';
 import { GooeyText } from '@/components/ui/gooey-text-morphing';
 import { GooeyFilter } from '@/components/ui/gooey-filter';
 import { GooeyDemo } from '@/components/ui/gooey-demo';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -99,9 +99,9 @@ const Index = () => {
                 className="mt-8"
               >
                 <Link to="/contact">
-                  <MagnetizeButton>
+                  <Button className="bg-violet-100 dark:bg-violet-900 hover:bg-violet-200 dark:hover:bg-violet-800 text-violet-600 dark:text-violet-300 border border-violet-300 dark:border-violet-700 transition-all duration-300">
                     Contact Me
-                  </MagnetizeButton>
+                  </Button>
                 </Link>
               </motion.div>
             </motion.div>
