@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MagnetLines } from '@/components/ui/magnet-lines';
 import IntroAnimation from '@/components/IntroAnimation';
@@ -8,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { MagnetizeButton } from '@/components/ui/magnetize-button';
 import { GooeyText } from '@/components/ui/gooey-text-morphing';
 import { GooeyFilter } from '@/components/ui/gooey-filter';
+import { GooeyDemo } from '@/components/ui/gooey-demo';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -104,6 +106,10 @@ const Index = () => {
               </motion.div>
             </motion.div>
           </motion.main>
+          
+          <div className="relative w-full h-screen">
+            <GooeyDemo />
+          </div>
         </>
       )}
     </div>
