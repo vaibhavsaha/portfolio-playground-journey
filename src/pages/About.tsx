@@ -4,6 +4,7 @@ import { SparklesCore } from '@/components/ui/sparkles';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
+import AnimatedSkill from '@/components/AnimatedSkill';
 
 const About = () => {
   const skills = [
@@ -68,15 +69,7 @@ const About = () => {
             <h3 className="text-lg font-medium mb-3">Skills</h3>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, index) => (
-                <motion.span 
-                  key={index}
-                  className="px-3 py-1 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm text-sm"
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 2 + index * 0.1 }}
-                >
-                  {skill}
-                </motion.span>
+                <AnimatedSkill key={index} skill={skill} index={index} />
               ))}
             </div>
           </motion.div>
