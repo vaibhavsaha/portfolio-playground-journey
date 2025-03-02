@@ -58,7 +58,7 @@ function MagnetLines({
         backgroundColor: lineColor,
         width: lineWidth,
         height: lineHeight,
-        "--rotate": `${baseAngle}deg`,
+        ["--rotate" as any]: `${baseAngle}deg`,
         transform: "rotate(var(--rotate))",
         willChange: "transform"
       }}

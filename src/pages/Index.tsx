@@ -8,6 +8,7 @@ import SocialLinks from '@/components/SocialLinks';
 import { Link } from 'react-router-dom';
 import { MagnetizeButton } from '@/components/ui/magnetize-button';
 import { GooeyText } from '@/components/ui/gooey-text-morphing';
+import { GooeyFilter } from '@/components/ui/gooey-filter';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -36,14 +37,16 @@ const Index = () => {
             />
           </div>
           
+          <GooeyFilter id="gooey-filter" strength={8} />
+          
           <Navbar />
-          <SocialLinks />
+          <SocialLinks className="fixed bottom-8 right-8 z-20" />
           
           <motion.main 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative pt-32 min-h-screen flex items-center justify-center z-10"
+            className="relative pt-24 min-h-screen flex items-center z-10"
           >
             <motion.div 
               className="flex flex-col items-start justify-center px-4 max-w-3xl mx-auto z-10 pl-8 sm:pl-16"
@@ -52,7 +55,7 @@ const Index = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <motion.div 
-                className="mb-4 text-base sm:text-lg font-medium tracking-wider"
+                className="mb-6 text-lg sm:text-xl font-medium tracking-wider"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -63,7 +66,7 @@ const Index = () => {
               </motion.div>
               
               <motion.h1 
-                className="text-5xl sm:text-6xl font-bold mb-6 tracking-tight"
+                className="text-5xl sm:text-6xl font-bold mb-8 tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -72,18 +75,20 @@ const Index = () => {
               </motion.h1>
               
               <motion.div 
-                className="text-4xl sm:text-7xl font-bold text-foreground mb-8 min-h-24 sm:min-h-28"
+                className="flex flex-col items-start mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <span>I'm a </span>
-                <GooeyText 
-                  texts={roles}
-                  morphTime={1}
-                  cooldownTime={2.5}
-                  className="font-bold inline-block"
-                />
+                <span className="text-2xl mb-2">I'm a</span>
+                <div className="h-24 sm:h-28">
+                  <GooeyText 
+                    texts={roles}
+                    morphTime={1}
+                    cooldownTime={2.5}
+                    className="text-5xl sm:text-7xl font-bold"
+                  />
+                </div>
               </motion.div>
               
               <motion.div
