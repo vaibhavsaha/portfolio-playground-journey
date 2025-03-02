@@ -103,7 +103,11 @@ export default {
 					'50%, 70%': { opacity: '1', transform: 'translateY(0)' },
 					'75%, 95%': { opacity: '0', transform: 'translateY(-20px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
-				}
+				},
+				grid: {
+					"0%": { transform: "translateY(-50%)" },
+					"100%": { transform: "translateY(0)" },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -115,7 +119,8 @@ export default {
 				'scale-in': 'scale-in 0.7s ease-out forwards',
 				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
 				'circle-scale': 'circle-scale 1.5s ease-out forwards',
-				'text-cycle': 'text-cycle 9s ease-in-out infinite'
+				'text-cycle': 'text-cycle 9s ease-in-out infinite',
+				'grid': 'grid 15s linear infinite',
 			}
 		}
 	},

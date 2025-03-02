@@ -1,14 +1,11 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MagnetLines } from '@/components/ui/magnet-lines';
+import { RetroGrid } from '@/components/ui/retro-grid';
 import IntroAnimation from '@/components/IntroAnimation';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { Link } from 'react-router-dom';
-import { GooeyText } from '@/components/ui/gooey-text-morphing';
-import { GooeyFilter } from '@/components/ui/gooey-filter';
-import { GooeyDemo } from '@/components/ui/gooey-demo';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
@@ -27,19 +24,8 @@ const Index = () => {
       {!showIntro && (
         <>
           <div className="fixed inset-0 z-0">
-            <MagnetLines 
-              rows={12} 
-              columns={12} 
-              containerSize="100vw" 
-              lineColor="rgba(150, 150, 150, 0.15)" 
-              lineWidth="0.5vmin" 
-              lineHeight="4vmin" 
-              baseAngle={-10}
-            />
+            <RetroGrid />
           </div>
-          
-          {/* Remove the className prop from GooeyFilter */}
-          <GooeyFilter id="gooey-filter" strength={8} />
           
           <Navbar />
           <SocialLinks className="fixed bottom-8 right-8 z-20" />
@@ -51,7 +37,7 @@ const Index = () => {
             className="relative pt-24 min-h-screen flex items-center z-10"
           >
             <motion.div 
-              className="flex flex-col items-start justify-center px-4 max-w-3xl mx-auto z-10 pl-8 sm:pl-16"
+              className="flex flex-col items-start justify-center px-4 max-w-3xl mx-auto z-10 pl-4 sm:pl-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -83,13 +69,8 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <span className="text-2xl mb-2">I'm a</span>
-                <div className="h-24 sm:h-32">
-                  <GooeyText 
-                    texts={roles}
-                    morphTime={1}
-                    cooldownTime={2.5}
-                    className="text-6xl sm:text-7xl font-bold"
-                  />
+                <div className="text-6xl sm:text-7xl font-bold">
+                  {roles[0]}
                 </div>
               </motion.div>
               
@@ -107,10 +88,6 @@ const Index = () => {
               </motion.div>
             </motion.div>
           </motion.main>
-          
-          <div className="relative w-full h-screen">
-            <GooeyDemo />
-          </div>
         </>
       )}
     </div>
