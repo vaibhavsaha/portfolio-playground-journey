@@ -114,8 +114,8 @@ const Contact = () => {
               </div>
             
               <MagicCard 
-                className="p-4 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center hover:bg-foreground/5 transition-colors duration-300"
-                gradientColor="#262626"
+                className="p-4 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center hover:bg-foreground/5 transition-colors duration-300 bg-transparent border-foreground/10"
+                gradientColor="rgba(38, 38, 38, 0.1)"
               >
                 <a 
                   href="mailto:simranatsingh7j@gmail.com"
