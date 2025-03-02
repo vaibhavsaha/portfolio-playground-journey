@@ -37,19 +37,7 @@ const Contact = () => {
   ];
 
   const handleEmailClick = (e) => {
-    e.preventDefault();
-    toast({
-      title: "Redirect to Gmail?",
-      description: "You will be redirected to your email client.",
-      action: (
-        <a 
-          href="mailto:simranatsingh7j@gmail.com"
-          className="inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-primary px-3 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-        >
-          Continue
-        </a>
-      ),
-    });
+    window.location.href = "mailto:simranatsingh7j@gmail.com";
   };
   
   return (
@@ -99,8 +87,7 @@ const Contact = () => {
                     <Tooltip key={index}>
                       <TooltipTrigger asChild>
                         <motion.a 
-                          href={social.name === 'Email' ? '#' : social.url}
-                          onClick={social.name === 'Email' ? handleEmailClick : undefined}
+                          href={social.url}
                           target={social.name !== 'Email' ? "_blank" : undefined}
                           rel={social.name !== 'Email' ? "noopener noreferrer" : undefined}
                           className="p-2 sm:p-4 bg-foreground/5 rounded-full flex items-center justify-center hover:bg-foreground/10 transition-all duration-300"
@@ -126,8 +113,7 @@ const Contact = () => {
                 gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
               >
                 <a 
-                  href="#"
-                  onClick={handleEmailClick}
+                  href="mailto:simranatsingh7j@gmail.com"
                   className="w-full flex flex-col sm:flex-row items-start sm:items-center text-xl sm:text-2xl"
                 >
                   <span className="font-medium text-xl sm:text-2xl mb-2 sm:mb-0">Email:</span>
