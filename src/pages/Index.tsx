@@ -55,7 +55,7 @@ const Index = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <motion.div 
-                className="mb-6 text-lg sm:text-xl font-medium tracking-wider"
+                className="mb-6 text-xl sm:text-2xl font-medium tracking-wider"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -75,18 +75,18 @@ const Index = () => {
               </motion.h1>
               
               <motion.div 
-                className="flex flex-col items-start mb-12"
+                className="flex flex-col items-start mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <span className="text-2xl mb-2">I'm a</span>
-                <div className="h-24 sm:h-28">
+                <div className="h-24 sm:h-32">
                   <GooeyText 
                     texts={roles}
                     morphTime={1}
                     cooldownTime={2.5}
-                    className="text-5xl sm:text-7xl font-bold"
+                    className="text-6xl sm:text-7xl font-bold"
                   />
                 </div>
               </motion.div>
