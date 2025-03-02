@@ -38,6 +38,7 @@ const Index = () => {
             />
           </div>
           
+          {/* Remove the className prop from GooeyFilter */}
           <GooeyFilter id="gooey-filter" strength={8} />
           
           <Navbar />
