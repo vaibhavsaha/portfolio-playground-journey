@@ -30,18 +30,11 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
       {showAnimation && (
         <div className="relative">
           <svg width="300" height="120" viewBox="0 0 300 120">
-            <defs>
-              <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#9c5aff" />
-                <stop offset="50%" stopColor="#4285f4" />
-                <stop offset="100%" stopColor="#ff5692" />
-              </linearGradient>
-            </defs>
-            
+            {/* The white infinity path with 3 circles */}
             <motion.path
               d="M 75,60 C 75,20 125,20 150,60 C 175,100 225,100 225,60 C 225,20 175,20 150,60 C 125,100 75,100 75,60 Z"
               fill="none"
-              stroke="url(#circleGradient)"
+              stroke="#FFFFFF"
               strokeWidth="10"
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -55,31 +48,34 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
               onAnimationComplete={handleAnimationComplete}
             />
             
+            {/* Left circle */}
             <motion.circle 
               cx="75" 
               cy="60" 
               r="15" 
-              fill="#9c5aff" 
+              fill="#FFFFFF" 
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 0.9 }}
               transition={{ duration: 0.5, delay: 1.2 }}
             />
             
+            {/* Middle circle */}
             <motion.circle 
               cx="150" 
               cy="60" 
               r="15" 
-              fill="#4285f4" 
+              fill="#FFFFFF" 
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 0.9 }}
               transition={{ duration: 0.5, delay: 1.4 }}
             />
             
+            {/* Right circle */}
             <motion.circle 
               cx="225" 
               cy="60" 
               r="15" 
-              fill="#ff5692" 
+              fill="#FFFFFF" 
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 0.9 }}
               transition={{ duration: 0.5, delay: 1.6 }}
