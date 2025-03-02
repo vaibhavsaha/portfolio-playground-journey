@@ -49,10 +49,10 @@ const Index = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative pt-24 min-h-screen flex items-center justify-center z-10"
+            className="relative pt-24 min-h-screen flex items-center z-10"
           >
             <motion.div 
-              className="flex flex-col items-start justify-center px-4 max-w-3xl mx-auto"
+              className="flex flex-col items-start justify-center px-4 max-w-3xl ml-8 sm:ml-16 md:ml-24 lg:ml-32"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
