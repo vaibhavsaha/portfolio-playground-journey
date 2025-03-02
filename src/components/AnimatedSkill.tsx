@@ -24,14 +24,14 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
 
   return (
     <motion.div
-      className="relative px-8 py-4 mx-2 my-2" // Increased padding for larger size
+      className="relative px-8 py-4"
       initial={{ opacity: 0, y: 5 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 2 + index * 0.1 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="relative z-10 text-lg font-medium text-white">
+      <div className="relative z-10 text-xl font-medium text-white">
         {skill}
       </div>
       
@@ -46,9 +46,9 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
             className="absolute inset-0"
           >
             <motion.rect
-              x="2"
+              x="4"
               y="2"
-              width="96"
+              width="92"
               height="36"
               rx="18"
               ry="18"

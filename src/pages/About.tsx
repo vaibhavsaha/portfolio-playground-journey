@@ -56,7 +56,7 @@ const About = () => {
           
           <TextGenerateEffect
             words="Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!"
-            className="text-xl text-white" // Ensuring text is white
+            className="text-xl text-white" 
             duration={1.5}
             filter={true}
           />
@@ -68,7 +68,7 @@ const About = () => {
             transition={{ duration: 0.5, delay: 1.8 }}
           >
             <h3 className="text-xl font-medium mb-6 text-white">Skills</h3>
-            <div className="flex flex-wrap gap-6"> {/* Increased gap for more spacing */}
+            <div className="flex flex-wrap gap-8"> 
               {skills.map((skill, index) => (
                 <AnimatedSkill key={index} skill={skill} index={index} />
               ))}
