@@ -21,6 +21,10 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     }
   }, [isDark])
 
+  const handleToggle = () => {
+    setIsDark(!isDark);
+  };
+
   return (
     <div
       className={cn(
@@ -30,9 +34,15 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
           : "bg-white border border-zinc-200",
         className
       )}
-      onClick={() => setIsDark(!isDark)}
+      onClick={handleToggle}
       role="button"
       tabIndex={0}
+      aria-label="Toggle theme"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleToggle();
+        }
+      }}
     >
       <div className="flex justify-between items-center w-full">
         <div

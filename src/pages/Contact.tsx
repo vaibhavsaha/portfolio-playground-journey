@@ -7,9 +7,11 @@ import { MagicCard } from '@/components/ui/magic-card';
 import { useTheme } from 'next-themes';
 import { Linkedin, Github, Mail, Twitter } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { theme } = useTheme();
+  const { toast } = useToast();
   
   const socialIcons = [
     { 
@@ -33,6 +35,22 @@ const Contact = () => {
       url: 'https://x.com/SimranTwt_'
     },
   ];
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    toast({
+      title: "Redirect to Gmail?",
+      description: "You will be redirected to your email client.",
+      action: (
+        <a 
+          href="mailto:simranatsingh7j@gmail.com"
+          className="inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-primary px-3 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+        >
+          Continue
+        </a>
+      ),
+    });
+  };
   
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -75,16 +93,17 @@ const Contact = () => {
             <p className="mb-6 sm:mb-8">I'd love to hear from you! Feel free to reach out through any of these channels:</p>
             
             <div className="grid gap-6 sm:gap-8">
-              <div className="flex justify-center space-x-2 sm:space-x-4 my-4 sm:my-6">
+              <div className="flex justify-center space-x-1 sm:space-x-3 my-4 sm:my-6">
                 <TooltipProvider>
                   {socialIcons.map((social, index) => (
                     <Tooltip key={index}>
                       <TooltipTrigger asChild>
                         <motion.a 
-                          href={social.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 sm:p-4 bg-foreground/5 rounded-full flex items-center justify-center hover:bg-foreground/10 transition-all duration-300"
+                          href={social.name === 'Email' ? '#' : social.url}
+                          onClick={social.name === 'Email' ? handleEmailClick : undefined}
+                          target={social.name !== 'Email' ? "_blank" : undefined}
+                          rel={social.name !== 'Email' ? "noopener noreferrer" : undefined}
+                          className="p-2 sm:p-4 bg-foreground/5 rounded-full flex items-center justify-center hover:bg-foreground/10 transition-all duration-300"
                           whileHover={{ 
                             scale: 1.2,
                             y: -10,
@@ -107,7 +126,8 @@ const Contact = () => {
                 gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
               >
                 <a 
-                  href="mailto:simranatsingh7j@gmail.com" 
+                  href="#"
+                  onClick={handleEmailClick}
                   className="w-full flex flex-col sm:flex-row items-start sm:items-center text-xl sm:text-2xl"
                 >
                   <span className="font-medium text-xl sm:text-2xl mb-2 sm:mb-0">Email:</span>
