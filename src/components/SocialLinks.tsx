@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Linkedin, Twitter, Mail, Github } from 'lucide-react';
 
 const SocialLinks = () => {
   const socialLinks = [
@@ -15,6 +15,12 @@ const SocialLinks = () => {
       icon: <Twitter className="w-5 h-5" />, 
       url: 'https://x.com/SimranTwt_',
       label: 'Twitter'
+    },
+    { 
+      id: 'github', 
+      icon: <Github className="w-5 h-5" />, 
+      url: 'https://github.com/Simranatsingh',
+      label: 'GitHub'
     },
     { 
       id: 'email', 

@@ -63,7 +63,7 @@ const Index = () => {
               </motion.div>
               
               <motion.h1 
-                className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight"
+                className="text-5xl sm:text-6xl font-bold mb-6 tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -72,13 +72,13 @@ const Index = () => {
               </motion.h1>
               
               <motion.div 
-                className="text-xl sm:text-2xl font-medium text-foreground/80 mb-8 h-10"
+                className="text-3xl sm:text-5xl font-bold text-foreground mb-8 h-16 sm:h-20"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <span>I'm a </span>
-                <span className="relative inline-block w-32">
+                <span className="relative inline-block min-w-40">
                   {roles.map((role, index) => (
                     <motion.span
                       key={role}
