@@ -4,10 +4,13 @@ import { SparklesCore } from '@/components/ui/sparkles';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 
 const About = () => {
+  const skills = [
+    "JavaScript", "Java", "TypeScript", "HTML", "CSS", 
+    "React", "Solana", "Third Web", "Linux", "Version Control"
+  ];
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="fixed inset-0 z-0 bg-black">
@@ -56,17 +59,26 @@ const About = () => {
             filter={true}
           />
           
-          <motion.div
+          <motion.div 
+            className="mt-8"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.8 }}
-            className="mt-8 flex justify-center sm:justify-start"
           >
-            <Link to="/contact">
-              <Button className="bg-violet-100 dark:bg-violet-900 hover:bg-violet-200 dark:hover:bg-violet-800 text-violet-600 dark:text-violet-300 border border-violet-300 dark:border-violet-700 transition-all duration-300">
-                Reach Out
-              </Button>
-            </Link>
+            <h3 className="text-lg font-medium mb-3">Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill, index) => (
+                <motion.span 
+                  key={index}
+                  className="px-3 py-1 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm text-sm"
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 2 + index * 0.1 }}
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </motion.main>

@@ -1,6 +1,5 @@
 
 import { motion } from 'framer-motion';
-import { Squares } from '@/components/ui/squares-background';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { MagicCard } from '@/components/ui/magic-card';
@@ -8,6 +7,7 @@ import { useTheme } from 'next-themes';
 import { Linkedin, Github, Mail, Twitter } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useToast } from "@/hooks/use-toast";
+import { EvervaultCard } from '@/components/ui/evervault-card';
 
 const Contact = () => {
   const { theme } = useTheme();
@@ -35,15 +35,11 @@ const Contact = () => {
       url: 'https://x.com/SimranTwt_'
     },
   ];
-
-  const handleEmailClick = (e) => {
-    window.location.href = "mailto:simranatsingh7j@gmail.com";
-  };
   
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="fixed inset-0 z-0">
-        <Squares direction="diagonal" speed={0.5} squareSize={40} borderColor="#333" hoverFillColor="#222" />
+        <EvervaultCard text="Connect" className="w-full h-full" />
       </div>
       
       <Navbar />
