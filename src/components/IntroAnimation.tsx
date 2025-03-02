@@ -7,11 +7,11 @@ interface IntroAnimationProps {
 }
 
 const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
-  const [showCircles, setShowCircles] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(false);
   
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowCircles(true);
+      setShowAnimation(true);
     }, 500);
     
     return () => clearTimeout(timer);
@@ -27,38 +27,74 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
   
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
-      {showCircles && (
-        <div className="relative flex items-center justify-center">
-          <div className="flex items-center justify-center space-x-4">
-            <motion.div 
-              className="w-24 h-24 rounded-full bg-violet-600 opacity-80"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      {showAnimation && (
+        <div className="relative">
+          <svg width="300" height="120" viewBox="0 0 300 120">
+            <defs>
+              <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#9c5aff" />
+                <stop offset="50%" stopColor="#4285f4" />
+                <stop offset="100%" stopColor="#ff5692" />
+              </linearGradient>
+            </defs>
+            
+            <motion.path
+              d="M 75,60 C 75,20 125,20 150,60 C 175,100 225,100 225,60 C 225,20 175,20 150,60 C 125,100 75,100 75,60 Z"
+              fill="none"
+              stroke="url(#circleGradient)"
+              strokeWidth="10"
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ 
+                duration: 1.5, 
+                ease: "easeInOut",
+                times: [0, 1],
+                delay: 0.2
+              }}
               onAnimationComplete={handleAnimationComplete}
             />
-            <motion.div 
-              className="w-24 h-24 rounded-full bg-blue-500 opacity-80"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            
+            <motion.circle 
+              cx="75" 
+              cy="60" 
+              r="15" 
+              fill="#9c5aff" 
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 0.9 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
             />
-            <motion.div 
-              className="w-24 h-24 rounded-full bg-pink-500 opacity-80"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            
+            <motion.circle 
+              cx="150" 
+              cy="60" 
+              r="15" 
+              fill="#4285f4" 
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 0.9 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
             />
-          </div>
+            
+            <motion.circle 
+              cx="225" 
+              cy="60" 
+              r="15" 
+              fill="#ff5692" 
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 0.9 }}
+              transition={{ duration: 0.5, delay: 1.6 }}
+            />
+          </svg>
+          
           <motion.div
-            className="absolute"
+            className="absolute inset-0 flex items-center justify-center"
             animate={{
               scale: [1, 3],
               opacity: [1, 0]
             }}
             transition={{ 
               duration: 0.8, 
-              delay: 0.9,
+              delay: 2.2,
               ease: "easeOut"
             }}
           >
