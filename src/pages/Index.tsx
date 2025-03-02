@@ -78,20 +78,20 @@ const Index = () => {
               </motion.h1>
               
               <motion.div 
-                className="flex flex-col items-start"
+                className="flex items-baseline space-x-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <span className="text-xl sm:text-2xl mb-2 sm:mb-3">I'm a</span>
-                <div className="h-16 sm:h-24">
+                <span className="text-xl sm:text-2xl">I'm a</span>
+                <div className="h-16 sm:h-20">
                   <motion.span
                     key={currentRoleIndex}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className={`text-5xl sm:text-7xl md:text-8xl font-bold block ${roles[currentRoleIndex].color}`}
+                    className={`text-4xl sm:text-6xl md:text-7xl font-bold inline-block ${roles[currentRoleIndex].color}`}
                   >
                     {roles[currentRoleIndex].text}
                   </motion.span>

@@ -12,7 +12,7 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(true);
-    }, 500);
+    }, 300); // Reduced from 500ms to 300ms
     
     return () => clearTimeout(timer);
   }, []);
@@ -21,7 +21,7 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
     if (onAnimationComplete) {
       setTimeout(() => {
         onAnimationComplete();
-      }, 1000);
+      }, 800); // Reduced from 1000ms to 800ms
     }
   };
   
@@ -40,10 +40,10 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ pathLength: 1, opacity: 1 }}
               transition={{ 
-                duration: 1.5, 
+                duration: 1.2, // Reduced from 1.5s to 1.2s
                 ease: "easeInOut",
                 times: [0, 1],
-                delay: 0.2
+                delay: 0.1 // Reduced from 0.2s to 0.1s
               }}
               onAnimationComplete={handleAnimationComplete}
             />
@@ -56,7 +56,7 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
               fill="#FFFFFF" 
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 0.9 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
+              transition={{ duration: 0.3, delay: 0.9 }} // Reduced from 0.5s to 0.3s, and 1.2s to 0.9s
             />
             
             {/* Middle circle */}
@@ -67,7 +67,7 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
               fill="#FFFFFF" 
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 0.9 }}
-              transition={{ duration: 0.5, delay: 1.4 }}
+              transition={{ duration: 0.3, delay: 1.0 }} // Reduced from 0.5s to 0.3s, and 1.4s to 1.0s
             />
             
             {/* Right circle */}
@@ -78,7 +78,7 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
               fill="#FFFFFF" 
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 0.9 }}
-              transition={{ duration: 0.5, delay: 1.6 }}
+              transition={{ duration: 0.3, delay: 1.1 }} // Reduced from 0.5s to 0.3s, and 1.6s to 1.1s
             />
           </svg>
           
@@ -89,8 +89,8 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
               opacity: [1, 0]
             }}
             transition={{ 
-              duration: 0.8, 
-              delay: 2.2,
+              duration: 0.6, // Reduced from 0.8s to 0.6s
+              delay: 1.5, // Reduced from 2.2s to 1.5s
               ease: "easeOut"
             }}
           >

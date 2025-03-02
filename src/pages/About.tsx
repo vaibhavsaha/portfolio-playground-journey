@@ -1,14 +1,24 @@
 
 import { motion } from 'framer-motion';
-import { Squares } from '@/components/ui/squares-background';
+import { SparklesCore } from '@/components/ui/sparkles';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
 const About = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="fixed inset-0 z-0">
-        <Squares direction="diagonal" speed={0.5} squareSize={40} borderColor="#333" hoverFillColor="#222" />
+      <div className="fixed inset-0 z-0 bg-black">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#FFFFFF"
+          speed={1}
+        />
       </div>
       
       <Navbar />
@@ -37,14 +47,12 @@ const About = () => {
             </span>
           </motion.div>
           
-          <motion.p 
-            className="text-xl leading-relaxed text-balance"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!
-          </motion.p>
+          <TextGenerateEffect
+            words="Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!"
+            className="text-xl"
+            duration={1.5}
+            filter={true}
+          />
         </motion.div>
       </motion.main>
     </div>
