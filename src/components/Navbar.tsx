@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { GradientButton } from '@/components/ui/gradient-button';
 import { Menu, X, Home } from 'lucide-react';
 
@@ -66,9 +65,9 @@ const Navbar = () => {
           ))}
         </div>
         
-        {/* Theme toggle */}
+        {/* Theme toggle has been removed */}
         <div className="ml-4">
-          <ThemeToggle />
+          {/* Intentionally left empty */}
         </div>
       </div>
       

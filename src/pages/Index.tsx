@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { RetroGrid } from '@/components/ui/retro-grid';
 import IntroAnimation from '@/components/IntroAnimation';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
@@ -40,7 +39,19 @@ const Index = () => {
       {!showIntro && (
         <>
           <div className="fixed inset-0 z-0">
-            <RetroGrid />
+            <Waves 
+              lineColor="rgba(255, 255, 255, 0.3)"
+              backgroundColor="black"
+              waveSpeedX={0.02}
+              waveSpeedY={0.01}
+              waveAmpX={40}
+              waveAmpY={20}
+              friction={0.9}
+              tension={0.01}
+              maxCursorMove={120}
+              xGap={12}
+              yGap={36}
+            />
           </div>
           
           <Navbar />
