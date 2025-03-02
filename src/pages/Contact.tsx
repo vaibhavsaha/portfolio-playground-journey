@@ -63,7 +63,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <span className="px-4 py-2 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm text-lg font-medium">
+            <span className="px-4 py-2 rounded-full bg-foreground/10 backdrop-blur-sm text-lg font-medium">
               Connect
             </span>
           </motion.div>

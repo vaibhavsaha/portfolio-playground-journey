@@ -63,7 +63,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <span className="px-4 py-1.5 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm">
+                <span className="px-4 py-1.5 rounded-full bg-foreground/10 backdrop-blur-sm">
                   <span className="text-white">Hi, I'm</span>
                 </span>
               </motion.div>
