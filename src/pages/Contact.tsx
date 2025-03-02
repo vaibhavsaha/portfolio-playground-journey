@@ -3,14 +3,12 @@ import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { MagicCard } from '@/components/ui/magic-card';
-import { useTheme } from 'next-themes';
 import { Linkedin, Github, Mail, Twitter } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useToast } from "@/hooks/use-toast";
-import { EvervaultCard } from '@/components/ui/evervault-card';
+import { Waves } from '@/components/ui/waves-background';
 
 const Contact = () => {
-  const { theme } = useTheme();
   const { toast } = useToast();
   
   const socialIcons = [
@@ -39,7 +37,19 @@ const Contact = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="fixed inset-0 z-0">
-        <EvervaultCard text="Connect" className="w-full h-full" />
+        <Waves 
+          lineColor="rgba(255, 255, 255, 0.3)"
+          backgroundColor="black"
+          waveSpeedX={0.02}
+          waveSpeedY={0.01}
+          waveAmpX={40}
+          waveAmpY={20}
+          friction={0.9}
+          tension={0.01}
+          maxCursorMove={120}
+          xGap={12}
+          yGap={36}
+        />
       </div>
       
       <Navbar />
@@ -63,7 +73,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <span className="px-4 py-2 rounded-full bg-foreground/10 backdrop-blur-sm text-lg font-medium">
+            <span className="px-4 py-2 rounded-full bg-foreground/10 backdrop-blur-sm text-lg font-medium text-white">
               Connect
             </span>
           </motion.div>
@@ -86,7 +96,7 @@ const Contact = () => {
                           href={social.url}
                           target={social.name !== 'Email' ? "_blank" : undefined}
                           rel={social.name !== 'Email' ? "noopener noreferrer" : undefined}
-                          className="p-2 sm:p-4 bg-foreground/5 rounded-full flex items-center justify-center hover:bg-foreground/10 transition-all duration-300"
+                          className="p-2 sm:p-4 bg-foreground/5 rounded-full flex items-center justify-center hover:bg-foreground/10 transition-all duration-300 text-white"
                           whileHover={{ 
                             scale: 1.2,
                             y: -10,
@@ -106,7 +116,7 @@ const Contact = () => {
             
               <MagicCard 
                 className="p-4 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center hover:bg-foreground/5 transition-colors duration-300"
-                gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+                gradientColor="#262626"
               >
                 <a 
                   href="mailto:simranatsingh7j@gmail.com"

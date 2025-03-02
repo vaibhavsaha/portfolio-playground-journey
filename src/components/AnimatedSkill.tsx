@@ -24,7 +24,7 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
 
   return (
     <motion.div
-      className="relative px-8 py-4"
+      className="relative px-6 py-3" // Reduced padding to make the component more compact
       initial={{ opacity: 0, y: 5 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 2 + index * 0.1 }}
@@ -46,14 +46,14 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
             className="absolute inset-0"
           >
             <motion.rect
-              x="4"
+              x="6"
               y="2"
-              width="92"
+              width="88" // Made slightly narrower
               height="36"
               rx="18"
               ry="18"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="1.5" // Slightly thinner stroke
               fill="none"
               className="text-white"
               variants={draw}
