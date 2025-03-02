@@ -103,7 +103,7 @@ function MagnetizeButton({
                         isAttracting && "scale-110"
                     )}
                 />
-                {isAttracting ? "Attracting" : "Hover me"}
+                {isAttracting ? "Attracting" : "Contact Me"}
             </span>
         </Button>
     );
