@@ -6,6 +6,7 @@ import IntroAnimation from '@/components/IntroAnimation';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { Link } from 'react-router-dom';
+import { GooeyText } from '@/components/ui/gooey-text-morphing';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
@@ -69,8 +70,13 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <span className="text-2xl mb-2">I'm a</span>
-                <div className="text-6xl sm:text-7xl font-bold">
-                  {roles[0]}
+                <div className="h-24 sm:h-32">
+                  <GooeyText 
+                    texts={roles}
+                    morphTime={1}
+                    cooldownTime={2.5}
+                    className="text-6xl sm:text-7xl font-bold"
+                  />
                 </div>
               </motion.div>
               
