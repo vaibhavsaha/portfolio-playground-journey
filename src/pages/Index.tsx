@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MagnetLines } from '@/components/ui/magnet-lines';
@@ -37,7 +36,6 @@ const Index = () => {
             />
           </div>
           
-          {/* Removed the className prop from GooeyFilter as it doesn't accept this prop */}
           <GooeyFilter id="gooey-filter" strength={8} />
           
           <Navbar />
