@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { MagicCard } from '@/components/ui/magic-card';
 import { useTheme } from 'next-themes';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const Contact = () => {
   const { theme } = useTheme();
@@ -37,7 +38,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <span className="px-4 py-2 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm text-lg font-medium">
-              Contact Me
+              Contact
             </span>
           </motion.div>
           
@@ -49,47 +50,66 @@ const Contact = () => {
           >
             <p className="mb-8 text-2xl">I'd love to hear from you! Feel free to reach out through any of these channels:</p>
             
-            <div className="grid gap-6">
+            <div className="grid gap-8">
+              <div className="flex -space-x-3 my-6">
+                <Avatar className="ring-2 ring-background w-16 h-16">
+                  <AvatarImage src="https://originui.com/avatar-80-03.jpg" alt="Avatar 01" />
+                  <AvatarFallback>A1</AvatarFallback>
+                </Avatar>
+                <Avatar className="ring-2 ring-background w-16 h-16">
+                  <AvatarImage src="https://originui.com/avatar-80-04.jpg" alt="Avatar 02" />
+                  <AvatarFallback>A2</AvatarFallback>
+                </Avatar>
+                <Avatar className="ring-2 ring-background w-16 h-16">
+                  <AvatarImage src="https://originui.com/avatar-80-05.jpg" alt="Avatar 03" />
+                  <AvatarFallback>A3</AvatarFallback>
+                </Avatar>
+                <Avatar className="ring-2 ring-background w-16 h-16">
+                  <AvatarImage src="https://originui.com/avatar-80-06.jpg" alt="Avatar 04" />
+                  <AvatarFallback>A4</AvatarFallback>
+                </Avatar>
+              </div>
+            
               <MagicCard 
-                className="p-6 flex items-center hover:bg-foreground/5 transition-colors duration-300"
+                className="p-8 flex items-center hover:bg-foreground/5 transition-colors duration-300"
                 gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
               >
                 <a 
                   href="mailto:simranatsingh7j@gmail.com" 
-                  className="w-full flex items-center text-xl"
+                  className="w-full flex items-center text-2xl"
                 >
-                  <span className="font-medium text-xl">Email:</span>
-                  <span className="ml-3 text-xl">simranatsingh7j@gmail.com</span>
+                  <span className="font-medium text-2xl">Email:</span>
+                  <span className="ml-4 text-2xl">simranatsingh7j@gmail.com</span>
                 </a>
               </MagicCard>
               
               <MagicCard 
-                className="p-6 flex items-center hover:bg-foreground/5 transition-colors duration-300"
+                className="p-8 flex items-center hover:bg-foreground/5 transition-colors duration-300"
                 gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
               >
                 <a 
                   href="https://www.linkedin.com/in/simran-singh-0562a7222/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center text-xl"
+                  className="w-full flex items-center text-2xl"
                 >
-                  <span className="font-medium text-xl">LinkedIn:</span>
-                  <span className="ml-3 text-xl">Simran Singh</span>
+                  <span className="font-medium text-2xl">LinkedIn:</span>
+                  <span className="ml-4 text-2xl">Simran Singh</span>
                 </a>
               </MagicCard>
               
               <MagicCard 
-                className="p-6 flex items-center hover:bg-foreground/5 transition-colors duration-300"
+                className="p-8 flex items-center hover:bg-foreground/5 transition-colors duration-300"
                 gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
               >
                 <a 
                   href="https://x.com/SimranTwt_" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center text-xl"
+                  className="w-full flex items-center text-2xl"
                 >
-                  <span className="font-medium text-xl">Twitter:</span>
-                  <span className="ml-3 text-xl">@SimranTwt_</span>
+                  <span className="font-medium text-2xl">Twitter:</span>
+                  <span className="ml-4 text-2xl">@SimranTwt_</span>
                 </a>
               </MagicCard>
             </div>
