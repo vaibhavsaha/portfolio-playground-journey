@@ -20,7 +20,7 @@ const Index = () => {
   ];
   
   useEffect(() => {
-    // Change role every 2 seconds instead of 3
+    // Change role every 2 seconds
     const interval = setInterval(() => {
       setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
     }, 2000);
@@ -33,7 +33,7 @@ const Index = () => {
   };
   
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-black">
       {showIntro && <IntroAnimation onAnimationComplete={handleIntroComplete} />}
       
       {!showIntro && (
@@ -64,12 +64,12 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <span className="px-4 py-1.5 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm">
-                  <span className="text-foreground">Hi, I'm</span>
+                  <span className="text-white">Hi, I'm</span>
                 </span>
               </motion.div>
               
               <motion.h1 
-                className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-8 tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-8 tracking-tight text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -83,7 +83,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <span className="text-xl sm:text-2xl">I'm a</span>
+                <span className="text-xl sm:text-2xl text-white">I'm a</span>
                 <div className="h-16 sm:h-20">
                   <motion.span
                     key={currentRoleIndex}

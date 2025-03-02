@@ -31,7 +31,7 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="relative z-10 text-sm font-medium text-foreground">{skill}</div>
+      <div className="relative z-10 text-sm font-medium text-white">{skill}</div>
       
       {isHovered && (
         <div className="absolute inset-0 pointer-events-none">
@@ -49,14 +49,14 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
               stroke="currentColor"
               strokeWidth="2"
               fill="none"
-              className="text-primary dark:text-primary"
+              className="text-white"
               variants={draw}
             />
           </motion.svg>
         </div>
       )}
       
-      <div className="absolute inset-0 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm -z-10" />
+      <div className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-sm -z-10" />
     </motion.div>
   );
 };
