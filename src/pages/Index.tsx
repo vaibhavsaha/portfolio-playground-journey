@@ -6,13 +6,10 @@ import IntroAnimation from '@/components/IntroAnimation';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { Link } from 'react-router-dom';
-import { GooeyText } from '@/components/ui/gooey-text-morphing';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
-  
-  const roles = ['developer', 'designer', 'prototyper', 'illustrator'];
   
   const handleIntroComplete = () => {
     setShowIntro(false);
@@ -70,13 +67,11 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <span className="text-2xl mb-3">I'm a</span>
-                <div className="h-24 sm:h-32 mt-2">
-                  <GooeyText 
-                    texts={roles}
-                    morphTime={1}
-                    cooldownTime={2.5}
-                    className="text-6xl sm:text-7xl font-bold"
-                  />
+                <div className="flex flex-col space-y-1">
+                  <span className="text-6xl sm:text-7xl font-bold text-violet-600 dark:text-violet-400">developer</span>
+                  <span className="text-6xl sm:text-7xl font-bold text-pink-600 dark:text-pink-400">designer</span>
+                  <span className="text-6xl sm:text-7xl font-bold text-blue-600 dark:text-blue-400">prototyper</span>
+                  <span className="text-6xl sm:text-7xl font-bold text-emerald-600 dark:text-emerald-400">illustrator</span>
                 </div>
               </motion.div>
               
