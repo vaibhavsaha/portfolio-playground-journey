@@ -37,6 +37,7 @@ const Index = () => {
             />
           </div>
           
+          {/* Removed the className prop from GooeyFilter as it doesn't accept this prop */}
           <GooeyFilter id="gooey-filter" strength={8} />
           
           <Navbar />
