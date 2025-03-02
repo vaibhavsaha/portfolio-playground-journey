@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import AnimatedSkill from '@/components/AnimatedSkill';
+import { Waves } from '@/components/ui/waves-background';
 
 const About = () => {
   const skills = [
@@ -61,13 +62,13 @@ const About = () => {
           />
           
           <motion.div 
-            className="mt-8"
+            className="mt-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.8 }}
           >
-            <h3 className="text-lg font-medium mb-3 text-white">Skills</h3>
-            <div className="flex flex-wrap gap-2">
+            <h3 className="text-xl font-medium mb-5 text-white">Skills</h3>
+            <div className="flex flex-wrap gap-4">
               {skills.map((skill, index) => (
                 <AnimatedSkill key={index} skill={skill} index={index} />
               ))}

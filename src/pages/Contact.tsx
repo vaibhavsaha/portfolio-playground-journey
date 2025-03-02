@@ -74,7 +74,7 @@ const Contact = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <p className="mb-6 sm:mb-8">I'd love to hear from you! Feel free to reach out through any of these channels:</p>
+            <p className="mb-6 sm:mb-8 text-white">I'd love to hear from you! Feel free to reach out through any of these channels:</p>
             
             <div className="grid gap-6 sm:gap-8">
               <div className="flex justify-center space-x-1 sm:space-x-3 my-4 sm:my-6">
@@ -112,8 +112,8 @@ const Contact = () => {
                   href="mailto:simranatsingh7j@gmail.com"
                   className="w-full flex flex-col sm:flex-row items-start sm:items-center text-xl sm:text-2xl"
                 >
-                  <span className="font-medium text-xl sm:text-2xl mb-2 sm:mb-0">Email:</span>
-                  <span className="sm:ml-4 text-xl sm:text-2xl break-all">simranatsingh7j@gmail.com</span>
+                  <span className="font-medium text-xl sm:text-2xl mb-2 sm:mb-0 text-white">Email:</span>
+                  <span className="sm:ml-4 text-xl sm:text-2xl break-all text-white">simranatsingh7j@gmail.com</span>
                 </a>
               </MagicCard>
             </div>

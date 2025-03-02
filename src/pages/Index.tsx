@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { Link } from 'react-router-dom';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import { Waves } from '@/components/ui/waves-background';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);

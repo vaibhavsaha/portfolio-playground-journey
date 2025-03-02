@@ -24,14 +24,14 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
 
   return (
     <motion.div
-      className="relative px-4 py-2"
+      className="relative px-6 py-3"
       initial={{ opacity: 0, y: 5 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 2 + index * 0.1 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="relative z-10 text-sm font-medium text-white">{skill}</div>
+      <div className="relative z-10 text-base font-medium text-white">{skill}</div>
       
       {isHovered && (
         <div className="absolute inset-0 pointer-events-none">
@@ -41,11 +41,15 @@ const AnimatedSkill = ({ skill, index }: AnimatedSkillProps) => {
             viewBox="0 0 100 40"
             initial="hidden"
             animate="visible"
+            className="absolute inset-0"
           >
-            <motion.circle
-              cx="50"
-              cy="20"
-              r="15"
+            <motion.rect
+              x="5"
+              y="5"
+              width="90"
+              height="30"
+              rx="15"
+              ry="15"
               stroke="currentColor"
               strokeWidth="2"
               fill="none"
