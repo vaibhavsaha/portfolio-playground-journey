@@ -29,25 +29,27 @@ const IntroAnimation = ({ onAnimationComplete }: IntroAnimationProps) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
       {showCircles && (
         <div className="relative flex items-center justify-center">
-          <motion.div 
-            className="absolute w-24 h-24 rounded-full bg-violet-600 opacity-80"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1, x: -30, y: -10 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            onAnimationComplete={handleAnimationComplete}
-          />
-          <motion.div 
-            className="absolute w-20 h-20 rounded-full bg-blue-500 opacity-80"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1, x: 20, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          />
-          <motion.div 
-            className="absolute w-16 h-16 rounded-full bg-pink-500 opacity-80"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1, x: 0, y: -30 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          />
+          <div className="flex items-center justify-center space-x-4">
+            <motion.div 
+              className="w-24 h-24 rounded-full bg-violet-600 opacity-80"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              onAnimationComplete={handleAnimationComplete}
+            />
+            <motion.div 
+              className="w-24 h-24 rounded-full bg-blue-500 opacity-80"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            />
+            <motion.div 
+              className="w-24 h-24 rounded-full bg-pink-500 opacity-80"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </div>
           <motion.div
             className="absolute"
             animate={{

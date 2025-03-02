@@ -41,7 +41,7 @@ const SocialLinks = () => {
 
   return (
     <motion.div 
-      className="fixed bottom-10 left-10 z-40"
+      className="fixed bottom-10 right-10 z-40"
       variants={container}
       initial="hidden"
       animate="show"
