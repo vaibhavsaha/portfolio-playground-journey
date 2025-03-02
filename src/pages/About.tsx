@@ -4,7 +4,7 @@ import { SparklesCore } from '@/components/ui/sparkles';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
-import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const About = () => {
@@ -63,10 +63,9 @@ const About = () => {
             className="mt-8 flex justify-center sm:justify-start"
           >
             <Link to="/contact">
-              <InteractiveHoverButton 
-                text="Reach Out" 
-                className="w-36 py-2.5"
-              />
+              <Button className="bg-violet-100 dark:bg-violet-900 hover:bg-violet-200 dark:hover:bg-violet-800 text-violet-600 dark:text-violet-300 border border-violet-300 dark:border-violet-700 transition-all duration-300">
+                Reach Out
+              </Button>
             </Link>
           </motion.div>
         </motion.div>

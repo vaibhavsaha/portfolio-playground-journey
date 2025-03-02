@@ -6,7 +6,7 @@ import IntroAnimation from '@/components/IntroAnimation';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -105,9 +105,10 @@ const Index = () => {
                 className="mt-6 sm:mt-8"
               >
                 <Link to="/contact">
-                  <Button className="bg-violet-100 dark:bg-violet-900 hover:bg-violet-200 dark:hover:bg-violet-800 text-violet-600 dark:text-violet-300 border border-violet-300 dark:border-violet-700 transition-all duration-300">
-                    Reach Out
-                  </Button>
+                  <InteractiveHoverButton 
+                    text="Reach Out" 
+                    className="w-36 py-2.5"
+                  />
                 </Link>
               </motion.div>
             </motion.div>
