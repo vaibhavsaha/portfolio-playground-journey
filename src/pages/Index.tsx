@@ -38,7 +38,7 @@ const Index = () => {
             className="relative pt-24 min-h-screen flex items-center z-10"
           >
             <motion.div 
-              className="flex flex-col items-start justify-center px-4 max-w-3xl mx-auto z-10 pl-4 sm:pl-8"
+              className="flex flex-col items-start justify-center px-4 max-w-3xl mx-4 sm:ml-12 z-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -64,13 +64,13 @@ const Index = () => {
               </motion.h1>
               
               <motion.div 
-                className="flex flex-col items-start mb-8"
+                className="flex flex-col items-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <span className="text-2xl mb-2">I'm a</span>
-                <div className="h-24 sm:h-32">
+                <span className="text-2xl mb-3">I'm a</span>
+                <div className="h-24 sm:h-32 mt-2">
                   <GooeyText 
                     texts={roles}
                     morphTime={1}
