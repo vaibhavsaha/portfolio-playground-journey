@@ -1,7 +1,6 @@
 
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
-import SocialLinks from '@/components/SocialLinks';
 import { MagicCard } from '@/components/ui/magic-card';
 import { Linkedin, Github, Mail, Twitter } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -53,7 +52,7 @@ const Contact = () => {
       </div>
       
       <Navbar />
-      <SocialLinks />
+      {/* Only show SocialLinks on home page */}
       
       <motion.main 
         initial={{ opacity: 0 }}
@@ -79,7 +78,7 @@ const Contact = () => {
           </motion.div>
           
           <motion.div 
-            className="text-xl sm:text-2xl leading-relaxed text-balance"
+            className="text-xl sm:text-2xl leading-relaxed text-balance text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -120,7 +119,7 @@ const Contact = () => {
               >
                 <a 
                   href="mailto:simranatsingh7j@gmail.com"
-                  className="w-full flex flex-col sm:flex-row items-start sm:items-center text-xl sm:text-2xl"
+                  className="w-full flex flex-col sm:flex-row items-start sm:items-center text-xl sm:text-2xl text-white"
                 >
                   <span className="font-medium text-xl sm:text-2xl mb-2 sm:mb-0 text-white">Email:</span>
                   <span className="sm:ml-4 text-xl sm:text-2xl break-all text-white">simranatsingh7j@gmail.com</span>

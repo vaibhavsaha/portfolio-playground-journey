@@ -29,7 +29,8 @@ const About = () => {
       </div>
       
       <Navbar />
-      <SocialLinks />
+      {/* Only show SocialLinks on home page */}
+      {window.location.pathname === '/' && <SocialLinks />}
       
       <motion.main 
         initial={{ opacity: 0 }}
