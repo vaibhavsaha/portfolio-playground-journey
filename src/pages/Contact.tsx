@@ -5,10 +5,34 @@ import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
 import { MagicCard } from '@/components/ui/magic-card';
 import { useTheme } from 'next-themes';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Linkedin, Github, Mail, Twitter } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const Contact = () => {
   const { theme } = useTheme();
+  
+  const socialIcons = [
+    { 
+      name: 'LinkedIn', 
+      icon: <Linkedin className="w-12 h-12" />, 
+      url: 'https://www.linkedin.com/in/simran-singh-0562a7222/'
+    },
+    { 
+      name: 'Github', 
+      icon: <Github className="w-12 h-12" />, 
+      url: 'https://github.com/Simranatsingh'
+    },
+    { 
+      name: 'Email', 
+      icon: <Mail className="w-12 h-12" />, 
+      url: 'mailto:simranatsingh7j@gmail.com'
+    },
+    { 
+      name: 'Twitter', 
+      icon: <Twitter className="w-12 h-12" />, 
+      url: 'https://x.com/SimranTwt_'
+    },
+  ];
   
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -38,7 +62,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <span className="px-4 py-2 rounded-full bg-foreground/10 dark:bg-foreground/5 backdrop-blur-sm text-lg font-medium">
-              Contact
+              Connect
             </span>
           </motion.div>
           
@@ -51,23 +75,31 @@ const Contact = () => {
             <p className="mb-8 text-2xl">I'd love to hear from you! Feel free to reach out through any of these channels:</p>
             
             <div className="grid gap-8">
-              <div className="flex -space-x-3 my-6">
-                <Avatar className="ring-2 ring-background w-16 h-16">
-                  <AvatarImage src="https://originui.com/avatar-80-03.jpg" alt="Avatar 01" />
-                  <AvatarFallback>A1</AvatarFallback>
-                </Avatar>
-                <Avatar className="ring-2 ring-background w-16 h-16">
-                  <AvatarImage src="https://originui.com/avatar-80-04.jpg" alt="Avatar 02" />
-                  <AvatarFallback>A2</AvatarFallback>
-                </Avatar>
-                <Avatar className="ring-2 ring-background w-16 h-16">
-                  <AvatarImage src="https://originui.com/avatar-80-05.jpg" alt="Avatar 03" />
-                  <AvatarFallback>A3</AvatarFallback>
-                </Avatar>
-                <Avatar className="ring-2 ring-background w-16 h-16">
-                  <AvatarImage src="https://originui.com/avatar-80-06.jpg" alt="Avatar 04" />
-                  <AvatarFallback>A4</AvatarFallback>
-                </Avatar>
+              <div className="flex justify-center space-x-8 my-6">
+                <TooltipProvider>
+                  {socialIcons.map((social, index) => (
+                    <Tooltip key={index}>
+                      <TooltipTrigger asChild>
+                        <motion.a 
+                          href={social.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-4 bg-foreground/5 rounded-full flex items-center justify-center hover:bg-foreground/10 transition-all duration-300"
+                          whileHover={{ 
+                            scale: 1.2,
+                            y: -10,
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          {social.icon}
+                        </motion.a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{social.name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  ))}
+                </TooltipProvider>
               </div>
             
               <MagicCard 
