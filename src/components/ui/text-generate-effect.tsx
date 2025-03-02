@@ -18,16 +18,18 @@ export const TextGenerateEffect = ({
   const [scope, animate] = useAnimate();
   
   useEffect(() => {
-    animate(
-      "div",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-      }
-    );
+    if (scope.current) {
+      animate(
+        scope.current,
+        {
+          opacity: 1,
+          filter: filter ? "blur(0px)" : "none",
+        },
+        {
+          duration: duration ? duration : 1,
+        }
+      );
+    }
   }, [scope.current, animate, duration, filter]);
 
   return (
