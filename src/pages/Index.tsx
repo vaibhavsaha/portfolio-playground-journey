@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { RetroGrid } from '@/components/ui/retro-grid';
 import IntroAnimation from '@/components/IntroAnimation';
@@ -10,6 +10,23 @@ import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  
+  const roles = [
+    { text: 'developer', color: 'text-violet-600 dark:text-violet-400' },
+    { text: 'designer', color: 'text-pink-600 dark:text-pink-400' },
+    { text: 'prototyper', color: 'text-blue-600 dark:text-blue-400' },
+    { text: 'illustrator', color: 'text-emerald-600 dark:text-emerald-400' }
+  ];
+  
+  useEffect(() => {
+    // Change role every 3 seconds
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, []);
   
   const handleIntroComplete = () => {
     setShowIntro(false);
@@ -67,11 +84,17 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <span className="text-2xl mb-3">I'm a</span>
-                <div className="flex flex-col space-y-1">
-                  <span className="text-6xl sm:text-7xl font-bold text-violet-600 dark:text-violet-400">developer</span>
-                  <span className="text-6xl sm:text-7xl font-bold text-pink-600 dark:text-pink-400">designer</span>
-                  <span className="text-6xl sm:text-7xl font-bold text-blue-600 dark:text-blue-400">prototyper</span>
-                  <span className="text-6xl sm:text-7xl font-bold text-emerald-600 dark:text-emerald-400">illustrator</span>
+                <div className="h-24">
+                  <motion.span
+                    key={currentRoleIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className={`text-6xl sm:text-7xl font-bold block ${roles[currentRoleIndex].color}`}
+                  >
+                    {roles[currentRoleIndex].text}
+                  </motion.span>
                 </div>
               </motion.div>
               
