@@ -1,8 +1,6 @@
-
 import { motion } from 'framer-motion';
 import { SparklesCore } from '@/components/ui/sparkles';
 import Navbar from '@/components/Navbar';
-import SocialLinks from '@/components/SocialLinks';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import AnimatedSkill from '@/components/AnimatedSkill';
 import { Waves } from '@/components/ui/waves-background';
@@ -29,8 +27,6 @@ const About = () => {
       </div>
       
       <Navbar />
-      {/* Only show SocialLinks on home page */}
-      {window.location.pathname === '/' && <SocialLinks />}
       
       <motion.main 
         initial={{ opacity: 0 }}

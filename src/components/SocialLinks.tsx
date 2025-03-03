@@ -55,7 +55,7 @@ const SocialLinks = () => {
       initial="hidden"
       animate="show"
     >
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-row space-x-4">
         {socialLinks.map((link) => (
           <motion.a
             key={link.id}

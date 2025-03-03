@@ -6,6 +6,7 @@ import { Linkedin, Github, Mail, Twitter } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useToast } from "@/hooks/use-toast";
 import { Waves } from '@/components/ui/waves-background';
+import SocialLinks from '@/components/SocialLinks';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -52,7 +53,7 @@ const Contact = () => {
       </div>
       
       <Navbar />
-      {/* Only show SocialLinks on home page */}
+      <SocialLinks />
       
       <motion.main 
         initial={{ opacity: 0 }}
