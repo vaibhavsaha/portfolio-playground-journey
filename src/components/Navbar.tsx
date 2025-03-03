@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ButtonColorful } from '@/components/ui/button-colorful';
+import { StarBorder } from '@/components/ui/star-border';
 import { Menu, X, Home } from 'lucide-react';
 
 const navItems = [
@@ -54,14 +54,14 @@ const Navbar = () => {
               key={item.path}
               to={item.path}
             >
-              <ButtonColorful 
-                label={
-                  <>
-                    {item.icon && item.icon} {item.label}
-                  </>
-                }
-                className={`text-sm ${location.pathname === item.path ? "ring-1 ring-white/20" : ""}`}
-              />
+              <StarBorder 
+                className={`px-2 py-1 ${location.pathname === item.path ? "ring-1 ring-white/20" : ""}`}
+                color={location.pathname === item.path ? "hsl(var(--primary))" : undefined}
+              >
+                <div className="flex items-center justify-center gap-1 text-sm py-1 px-2">
+                  {item.icon && item.icon} {item.label}
+                </div>
+              </StarBorder>
             </Link>
           ))}
         </div>
@@ -87,14 +87,14 @@ const Navbar = () => {
               to={item.path}
               className="w-full"
             >
-              <ButtonColorful 
-                label={
-                  <>
-                    {item.icon && item.icon}{" "}{item.label}
-                  </>
-                }
+              <StarBorder 
                 className={`w-full ${location.pathname === item.path ? "ring-1 ring-white/20" : ""}`}
-              />
+                color={location.pathname === item.path ? "hsl(var(--primary))" : undefined}
+              >
+                <div className="flex items-center justify-center gap-1 py-1">
+                  {item.icon && item.icon} {item.label}
+                </div>
+              </StarBorder>
             </Link>
           ))}
         </motion.div>

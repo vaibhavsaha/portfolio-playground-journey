@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -130,6 +129,14 @@ export default {
 							"translate(calc(100% * var(--tx-4, -1)), calc(100% * var(--ty-4, -1)))",
 					},
 				},
+				'star-movement-bottom': {
+					'0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+					'100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+				},
+				'star-movement-top': {
+					'0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+					'100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -145,6 +152,8 @@ export default {
 				'grid': 'grid 15s linear infinite',
 				"background-gradient":
 					"background-gradient var(--background-gradient-speed, 15s) cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite",
+				'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+				'star-movement-top': 'star-movement-top linear infinite alternate',
 			}
 		}
 	},
