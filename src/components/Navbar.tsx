@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { GradientButton } from '@/components/ui/gradient-button';
+import { ButtonColorful } from '@/components/ui/button-colorful';
 import { Menu, X, Home } from 'lucide-react';
 
 const navItems = [
@@ -54,13 +54,14 @@ const Navbar = () => {
               key={item.path}
               to={item.path}
             >
-              <GradientButton 
-                variant={location.pathname === item.path ? "variant" : "default"} 
-                className="text-sm py-2 px-4 flex items-center gap-2"
-              >
-                {item.icon && item.icon}
-                {item.label}
-              </GradientButton>
+              <ButtonColorful 
+                label={
+                  <>
+                    {item.icon && item.icon} {item.label}
+                  </>
+                }
+                className={`text-sm ${location.pathname === item.path ? "ring-1 ring-white/20" : ""}`}
+              />
             </Link>
           ))}
         </div>
@@ -86,13 +87,14 @@ const Navbar = () => {
               to={item.path}
               className="w-full"
             >
-              <GradientButton 
-                variant={location.pathname === item.path ? "variant" : "default"} 
-                className="text-sm py-3 w-full flex items-center justify-center gap-2"
-              >
-                {item.icon && item.icon}
-                {item.label}
-              </GradientButton>
+              <ButtonColorful 
+                label={
+                  <>
+                    {item.icon && item.icon}{" "}{item.label}
+                  </>
+                }
+                className={`w-full ${location.pathname === item.path ? "ring-1 ring-white/20" : ""}`}
+              />
             </Link>
           ))}
         </motion.div>
