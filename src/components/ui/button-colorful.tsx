@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 
 interface ButtonColorfulProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    label?: string;
+    label?: React.ReactNode;
 }
 
 export function ButtonColorful({
@@ -41,5 +41,3 @@ export function ButtonColorful({
         </Button>
     );
 }
-
-export { ButtonColorful }
