@@ -1,9 +1,11 @@
+
 import { motion } from 'framer-motion';
 import { SparklesCore } from '@/components/ui/sparkles';
 import Navbar from '@/components/Navbar';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import AnimatedSkill from '@/components/AnimatedSkill';
-import { Waves } from '@/components/ui/waves-background';
+import KeyboardBackground from '@/components/KeyboardBackground';
+import HireMeButton from '@/components/HireMeButton';
 
 const About = () => {
   const skills = [
@@ -14,19 +16,13 @@ const About = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="fixed inset-0 z-0 bg-black">
-        <SparklesCore
-          id="tsparticlesfullpage"
-          background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
-          particleDensity={100}
-          className="w-full h-full"
-          particleColor="#FFFFFF"
-          speed={1}
-        />
+        {/* Background with keyboard */}
+        <KeyboardBackground />
       </div>
       
       <Navbar />
+      
+      <HireMeButton />
       
       <motion.main 
         initial={{ opacity: 0 }}
