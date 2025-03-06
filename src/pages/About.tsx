@@ -1,6 +1,5 @@
 
 import { motion } from 'framer-motion';
-import { SparklesCore } from '@/components/ui/sparkles';
 import Navbar from '@/components/Navbar';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import AnimatedSkill from '@/components/AnimatedSkill';
@@ -28,16 +27,16 @@ const About = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative pt-32 px-6 min-h-screen flex items-center justify-center z-10"
+        className="relative z-10"
       >
         <motion.div 
-          className="glass-morphism max-w-3xl mx-auto p-8 rounded-2xl"
+          className="glass-morphism max-w-md mx-auto p-4 rounded-xl mt-24 ml-6 mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <motion.div 
-            className="mb-6 inline-block"
+            className="mb-3 inline-block"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -49,13 +48,21 @@ const About = () => {
           
           <TextGenerateEffect
             words="Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!"
-            className="text-xl text-white" 
+            className="text-base text-white" 
             duration={1.5}
             filter={true}
           />
-          
+        </motion.div>
+        
+        <div className="h-[40vh]"></div> {/* Spacer to allow keyboard interaction */}
+        
+        <motion.div 
+          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           <motion.div 
-            className="mt-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.8 }}

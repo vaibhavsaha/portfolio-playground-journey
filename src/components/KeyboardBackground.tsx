@@ -18,8 +18,8 @@ const KeyboardBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   
-  const rotateX = useTransform(mouseY, [-300, 300], [5, -5]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-5, 5]);
+  const rotateX = useTransform(mouseY, [-300, 300], [15, -15]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15]);
 
   // Define keyboard keys with developer-related labels
   const keys: KeyProps[] = [
@@ -28,94 +28,36 @@ const KeyboardBackground = () => {
     { label: 'F1', x: 1.3, y: 0 },
     { label: 'F2', x: 2.3, y: 0 },
     { label: 'F3', x: 3.3, y: 0 },
-    { label: 'F4', x: 4.3, y: 0 },
-    { label: 'F5', x: 5.3, y: 0 },
-    { label: 'F6', x: 6.3, y: 0 },
-    { label: 'F7', x: 7.3, y: 0 },
-    { label: 'F8', x: 8.3, y: 0 },
-    { label: 'F9', x: 9.3, y: 0 },
-    { label: 'F10', x: 10.3, y: 0 },
-    { label: 'F11', x: 11.3, y: 0 },
-    { label: 'F12', x: 12.3, y: 0 },
     
     // Second row
     { label: '`', x: 0, y: 1.2 },
-    { label: '1', x: 1, y: 1.2 },
-    { label: '2', x: 2, y: 1.2 },
-    { label: '3', x: 3, y: 1.2 },
-    { label: '4', x: 4, y: 1.2 },
-    { label: '5', x: 5, y: 1.2 },
-    { label: '6', x: 6, y: 1.2 },
-    { label: '7', x: 7, y: 1.2 },
-    { label: '8', x: 8, y: 1.2 },
-    { label: '9', x: 9, y: 1.2 },
-    { label: '0', x: 10, y: 1.2 },
-    { label: '-', x: 11, y: 1.2 },
-    { label: '=', x: 12, y: 1.2 },
-    { label: 'DEL', x: 13, y: 1.2, width: 1.5 },
+    { label: '+', x: 1, y: 1.2 },
+    { label: '-', x: 2, y: 1.2 },
+    { label: '*', x: 3, y: 1.2 },
     
     // Third row
     { label: 'TAB', x: 0, y: 2.4, width: 1.5 },
     { label: 'Developer', x: 1.6, y: 2.4, width: 2, special: true, color: '#9b87f5' },
-    { label: 'W', x: 3.7, y: 2.4 },
-    { label: 'E', x: 4.7, y: 2.4 },
-    { label: 'R', x: 5.7, y: 2.4 },
-    { label: 'T', x: 6.7, y: 2.4 },
-    { label: 'Y', x: 7.7, y: 2.4 },
-    { label: 'U', x: 8.7, y: 2.4 },
-    { label: 'I', x: 9.7, y: 2.4 },
-    { label: 'O', x: 10.7, y: 2.4 },
-    { label: 'P', x: 11.7, y: 2.4 },
-    { label: '[', x: 12.7, y: 2.4 },
-    { label: ']', x: 13.7, y: 2.4 },
-    { label: '\\', x: 14.7, y: 2.4 },
+    { label: '', x: 3.7, y: 2.4 },
     
     // Fourth row
     { label: 'CAPS', x: 0, y: 3.6, width: 1.8 },
-    { label: 'A', x: 1.9, y: 3.6 },
-    { label: 'Designer', x: 2.9, y: 3.6, width: 2, special: true, color: '#33C3F0' },
-    { label: 'D', x: 5, y: 3.6 },
-    { label: 'F', x: 6, y: 3.6 },
-    { label: 'G', x: 7, y: 3.6 },
-    { label: 'H', x: 8, y: 3.6 },
-    { label: 'J', x: 9, y: 3.6 },
-    { label: 'K', x: 10, y: 3.6 },
-    { label: 'L', x: 11, y: 3.6 },
-    { label: ';', x: 12, y: 3.6 },
-    { label: "'", x: 13, y: 3.6 },
-    { label: 'ENTER', x: 14, y: 3.6, width: 1.8 },
+    { label: 'Designer', x: 1.9, y: 3.6, width: 2, special: true, color: '#33C3F0' },
+    { label: '', x: 4, y: 3.6 },
     
     // Fifth row
     { label: 'SHIFT', x: 0, y: 4.8, width: 2.5 },
-    { label: 'Z', x: 2.6, y: 4.8 },
-    { label: 'X', x: 3.6, y: 4.8 },
-    { label: 'UI/UX', x: 4.6, y: 4.8, width: 1.5, special: true, color: '#F97316' },
-    { label: 'V', x: 6.2, y: 4.8 },
-    { label: 'Branding', x: 7.2, y: 4.8, width: 2, special: true, color: '#D946EF' },
-    { label: 'N', x: 9.3, y: 4.8 },
-    { label: 'M', x: 10.3, y: 4.8 },
-    { label: ',', x: 11.3, y: 4.8 },
-    { label: '.', x: 12.3, y: 4.8 },
-    { label: '/', x: 13.3, y: 4.8 },
-    { label: 'SHIFT', x: 14.3, y: 4.8, width: 2.5 },
+    { label: 'UI/UX', x: 2.6, y: 4.8, width: 1.5, special: true, color: '#F97316' },
+    { label: 'Branding', x: 4.2, y: 4.8, width: 2, special: true, color: '#D946EF' },
     
     // Sixth row
     { label: 'CTRL', x: 0, y: 6, width: 1.5 },
-    { label: 'FN', x: 1.6, y: 6, width: 1 },
-    { label: 'WIN', x: 2.7, y: 6, width: 1.2 },
-    { label: 'ALT', x: 4, y: 6, width: 1.2 },
-    { label: 'Prototyper', x: 5.3, y: 6, width: 6, special: true, color: '#8B5CF6' },
-    { label: 'ALT', x: 11.4, y: 6, width: 1.2 },
-    { label: 'FN', x: 12.7, y: 6, width: 1 },
-    { label: 'MENU', x: 13.8, y: 6, width: 1.2 },
-    { label: 'CTRL', x: 15.1, y: 6, width: 1.5 },
+    { label: 'Prototyper', x: 1.6, y: 6, width: 4, special: true, color: '#8B5CF6' },
     
     // Add more special keys
-    { label: 'GraphicDesign', x: 16.7, y: 1.2, width: 2, height: 2, special: true, color: '#0EA5E9' },
-    { label: '+', x: 16.7, y: 3.3, width: 1, special: true },
-    { label: '-', x: 17.7, y: 3.3, width: 1, special: true },
-    { label: '*', x: 16.7, y: 4.4, width: 1, special: true },
-    { label: '/', x: 17.7, y: 4.4, width: 1, special: true },
+    { label: 'GraphicDesign', x: 6.2, y: 2.4, width: 2, height: 2, special: true, color: '#0EA5E9' },
+    { label: 'Dev', x: 6.2, y: 4.5, width: 1, special: true, color: '#9b87f5' },
+    { label: 'UX', x: 7.3, y: 4.5, width: 1, special: true, color: '#F97316' },
   ];
 
   useEffect(() => {
@@ -134,17 +76,6 @@ const KeyboardBackground = () => {
     };
   }, [mouseX, mouseY]);
 
-  const getCursorPosition = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      return {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      };
-    }
-    return { x: 0, y: 0 };
-  };
-
   return (
     <div className="w-full h-full absolute inset-0 overflow-hidden" ref={containerRef}>
       <motion.div 
@@ -153,10 +84,18 @@ const KeyboardBackground = () => {
           rotateX, 
           rotateY,
           perspective: 1000,
-          transformStyle: 'preserve-3d'
+          transformStyle: 'preserve-3d',
+          translateZ: -100,
         }}
       >
-        <div className="relative w-[1000px] h-[400px] bg-black/20 rounded-xl backdrop-blur-sm p-4">
+        <div 
+          className="relative w-[800px] h-[400px] bg-black/20 rounded-xl backdrop-blur-sm p-4"
+          style={{
+            transform: 'rotateX(20deg) scale(1.2)', 
+            transformStyle: 'preserve-3d',
+            transformOrigin: 'center center'
+          }}
+        >
           {keys.map((key, index) => (
             <motion.div
               key={index}
@@ -176,9 +115,9 @@ const KeyboardBackground = () => {
                 fontSize: key.special ? '14px' : '12px',
               }}
               whileHover={{
-                scale: 1.2,
+                scale: 1.3,
                 zIndex: 10,
-                translateZ: 20
+                translateZ: 30
               }}
               onHoverStart={() => setHoveredKey(key.label)}
               onHoverEnd={() => setHoveredKey(null)}

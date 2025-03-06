@@ -11,7 +11,7 @@ const HireMeButton = () => {
   
   return (
     <motion.div
-      className="fixed right-10 top-1/2 z-50"
+      className="fixed left-10 bottom-10 z-50"
       animate={{
         rotate: 360,
       }}
@@ -22,7 +22,7 @@ const HireMeButton = () => {
       }}
     >
       <motion.button
-        className="relative w-28 h-28 rounded-full flex items-center justify-center"
+        className="relative w-24 h-24 rounded-full flex items-center justify-center"
         whileHover={{ scale: 1.1 }}
         onClick={handleClick}
         onHoverStart={() => setIsHovered(true)}
@@ -44,7 +44,7 @@ const HireMeButton = () => {
           }}
         >
           <motion.span 
-            className="text-white font-bold text-lg"
+            className="text-white font-bold text-sm"
             animate={{
               scale: isHovered ? 1.1 : 1,
             }}
