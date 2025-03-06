@@ -30,7 +30,7 @@ const About = () => {
         className="relative z-10"
       >
         <motion.div 
-          className="glass-morphism max-w-md mx-auto p-4 rounded-xl mt-24 ml-6 mb-10"
+          className="glass-morphism max-w-xs mx-0 p-4 rounded-xl mt-24 ml-6 mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -48,13 +48,13 @@ const About = () => {
           
           <TextGenerateEffect
             words="Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!"
-            className="text-base text-white" 
+            className="text-sm text-white" 
             duration={1.5}
             filter={true}
           />
         </motion.div>
         
-        <div className="h-[40vh]"></div> {/* Spacer to allow keyboard interaction */}
+        <div className="h-[70vh]"></div> {/* Increased spacer to allow keyboard interaction */}
         
         <motion.div 
           className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative"

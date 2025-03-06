@@ -91,7 +91,7 @@ const KeyboardBackground = () => {
         <div 
           className="relative w-[800px] h-[400px] bg-black/20 rounded-xl backdrop-blur-sm p-4"
           style={{
-            transform: 'rotateX(20deg) scale(1.2)', 
+            transform: 'rotateX(25deg) rotateZ(-10deg) scale(1.4)', 
             transformStyle: 'preserve-3d',
             transformOrigin: 'center center'
           }}
@@ -111,13 +111,14 @@ const KeyboardBackground = () => {
                 backgroundColor: key.special ? key.color || '#444' : undefined,
                 zIndex: hoveredKey === key.label ? 10 : 1,
                 transformStyle: 'preserve-3d',
-                transform: 'translateZ(2px)',
+                transform: 'translateZ(5px)',
+                boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
                 fontSize: key.special ? '14px' : '12px',
               }}
               whileHover={{
-                scale: 1.3,
+                scale: 1.5,
                 zIndex: 10,
-                translateZ: 30
+                translateZ: 40
               }}
               onHoverStart={() => setHoveredKey(key.label)}
               onHoverEnd={() => setHoveredKey(null)}
@@ -136,10 +137,10 @@ const KeyboardBackground = () => {
           top: mouseY,
           translateX: '-50%',
           translateY: '-50%',
-          scale: hoveredKey ? 1.2 : 1
+          scale: hoveredKey ? 1.5 : 1.2
         }}
       >
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M13 6.5V11M22 12V12C22 17.5228 17.5228 22 12 22V22C6.47715 22 2 17.5228 2 12V12C2 6.47715 6.47715 2 12 2V2C17.5228 2 22 6.47715 22 12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M12.5 10.5V16M9.5 13V16M15.5 8V16M6.5 16V16.5M18.5 16V16.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>

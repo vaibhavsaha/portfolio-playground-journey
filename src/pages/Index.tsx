@@ -1,6 +1,6 @@
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import IntroAnimation from '@/components/IntroAnimation';
 import Navbar from '@/components/Navbar';
 import SocialLinks from '@/components/SocialLinks';
@@ -11,6 +11,16 @@ import { Waves } from '@/components/ui/waves-background';
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start", "end"]
+  });
+  
+  const nameScale = useTransform(scrollYProgress, [0, 0.5], [1, 2.5]);
+  const nameOpacity = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.7], [1, 1, 0.7, 0]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   
   const roles = [
     { text: 'developer', color: 'text-violet-600 dark:text-violet-400' },
@@ -33,7 +43,7 @@ const Index = () => {
   };
   
   return (
-    <div className="relative min-h-screen overflow-hidden bg-black">
+    <div className="relative min-h-screen overflow-hidden bg-black" ref={containerRef}>
       {showIntro && <IntroAnimation onAnimationComplete={handleIntroComplete} />}
       
       {!showIntro && (
@@ -62,6 +72,7 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className="relative pt-24 min-h-screen flex items-center z-10"
+            style={{ opacity: contentOpacity }}
           >
             <motion.div 
               className="flex flex-col items-start justify-center px-4 max-w-3xl mx-auto md:ml-24 lg:ml-32"
@@ -81,10 +92,15 @@ const Index = () => {
               </motion.div>
               
               <motion.h1 
-                className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-8 tracking-tight text-white"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-8 tracking-tight text-white origin-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
+                style={{ 
+                  scale: nameScale,
+                  opacity: nameOpacity,
+                  transformOrigin: 'left center'
+                }}
               >
                 Simran Singh
               </motion.h1>
@@ -125,6 +141,8 @@ const Index = () => {
               </motion.div>
             </motion.div>
           </motion.main>
+          
+          <div className="h-[300vh]"></div> {/* Extra space for scrolling effect */}
         </>
       )}
     </div>
