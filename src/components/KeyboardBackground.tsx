@@ -18,8 +18,8 @@ const KeyboardBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   
-  const rotateX = useTransform(mouseY, [-300, 300], [25, -25]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-25, 25]);
+  const rotateX = useTransform(mouseY, [-300, 300], [35, -35]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-30, 30]);
 
   // Define keyboard keys with developer-related labels
   const keys: KeyProps[] = [
@@ -89,9 +89,9 @@ const KeyboardBackground = () => {
         }}
       >
         <div 
-          className="relative w-[900px] h-[500px] bg-black/30 rounded-xl backdrop-blur-sm p-4"
+          className="relative w-[90%] h-[80%] bg-black/30 rounded-xl backdrop-blur-sm p-4"
           style={{
-            transform: 'rotateX(35deg) rotateZ(-15deg) scale(1.5)', 
+            transform: 'rotateX(35deg) rotateZ(-25deg) scale(1.7)', 
             transformStyle: 'preserve-3d',
             transformOrigin: 'center center'
           }}
@@ -104,16 +104,16 @@ const KeyboardBackground = () => {
                   ? 'font-bold text-white shadow-lg' 
                   : 'bg-white/10 backdrop-blur-sm text-white border border-white/20'}`}
               style={{
-                left: `${key.x * 40}px`,
-                top: `${key.y * 40}px`,
-                width: `${(key.width || 1) * 40}px`,
-                height: `${(key.height || 1) * 40}px`,
+                left: `${key.x * 50}px`,
+                top: `${key.y * 50}px`,
+                width: `${(key.width || 1) * 50}px`,
+                height: `${(key.height || 1) * 50}px`,
                 backgroundColor: key.special ? key.color || '#444' : undefined,
                 zIndex: hoveredKey === key.label ? 10 : 1,
                 transformStyle: 'preserve-3d',
-                transform: 'translateZ(8px)',
-                boxShadow: '0 8px 20px rgba(0,0,0,0.4)',
-                fontSize: key.special ? '14px' : '12px',
+                transform: 'translateZ(15px)',
+                boxShadow: '0 15px 30px rgba(0,0,0,0.6)',
+                fontSize: key.special ? '16px' : '14px',
               }}
               whileHover={{
                 scale: 1.5,

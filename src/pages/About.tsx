@@ -80,11 +80,12 @@ const About = () => {
         </motion.div>
       </motion.main>
       
-      <style jsx global>{`
+      {/* Instead of using the style tag with jsx and global attributes, adding a style tag with regular CSS */}
+      <style dangerouslySetInnerHTML={{ __html: `
         body {
           cursor: none;
         }
-      `}</style>
+      `}} />
     </div>
   );
 };
