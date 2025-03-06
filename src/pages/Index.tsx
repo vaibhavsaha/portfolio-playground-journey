@@ -18,9 +18,12 @@ const Index = () => {
     offset: ["start", "end"]
   });
   
-  const nameScale = useTransform(scrollYProgress, [0, 0.5], [1, 2.5]);
-  const nameOpacity = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.7], [1, 1, 0.7, 0]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  // Enhanced zoom and motion effects
+  const nameScale = useTransform(scrollYProgress, [0, 0.3], [1, 3.5]);
+  const nameOpacity = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6], [1, 1, 0.7, 0]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const namePosY = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
+  const namePosX = useTransform(scrollYProgress, [0, 0.3], [0, 30]);
   
   const roles = [
     { text: 'developer', color: 'text-violet-600 dark:text-violet-400' },
@@ -99,6 +102,8 @@ const Index = () => {
                 style={{ 
                   scale: nameScale,
                   opacity: nameOpacity,
+                  y: namePosY,
+                  x: namePosX,
                   transformOrigin: 'left center'
                 }}
               >

@@ -18,8 +18,8 @@ const KeyboardBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   
-  const rotateX = useTransform(mouseY, [-300, 300], [15, -15]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15]);
+  const rotateX = useTransform(mouseY, [-300, 300], [25, -25]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-25, 25]);
 
   // Define keyboard keys with developer-related labels
   const keys: KeyProps[] = [
@@ -83,15 +83,15 @@ const KeyboardBackground = () => {
         style={{ 
           rotateX, 
           rotateY,
-          perspective: 1000,
+          perspective: 1200,
           transformStyle: 'preserve-3d',
           translateZ: -100,
         }}
       >
         <div 
-          className="relative w-[800px] h-[400px] bg-black/20 rounded-xl backdrop-blur-sm p-4"
+          className="relative w-[900px] h-[500px] bg-black/30 rounded-xl backdrop-blur-sm p-4"
           style={{
-            transform: 'rotateX(25deg) rotateZ(-10deg) scale(1.4)', 
+            transform: 'rotateX(35deg) rotateZ(-15deg) scale(1.5)', 
             transformStyle: 'preserve-3d',
             transformOrigin: 'center center'
           }}
@@ -111,8 +111,8 @@ const KeyboardBackground = () => {
                 backgroundColor: key.special ? key.color || '#444' : undefined,
                 zIndex: hoveredKey === key.label ? 10 : 1,
                 transformStyle: 'preserve-3d',
-                transform: 'translateZ(5px)',
-                boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
+                transform: 'translateZ(8px)',
+                boxShadow: '0 8px 20px rgba(0,0,0,0.4)',
                 fontSize: key.special ? '14px' : '12px',
               }}
               whileHover={{
@@ -129,7 +129,7 @@ const KeyboardBackground = () => {
         </div>
       </motion.div>
       
-      {/* Giant pointing hand cursor */}
+      {/* Pointing hand cursor */}
       <motion.div 
         className="absolute pointer-events-none z-20"
         style={{ 
@@ -137,10 +137,10 @@ const KeyboardBackground = () => {
           top: mouseY,
           translateX: '-50%',
           translateY: '-50%',
-          scale: hoveredKey ? 1.5 : 1.2
+          scale: hoveredKey ? 1.8 : 1.4
         }}
       >
-        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M13 6.5V11M22 12V12C22 17.5228 17.5228 22 12 22V22C6.47715 22 2 17.5228 2 12V12C2 6.47715 6.47715 2 12 2V2C17.5228 2 22 6.47715 22 12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M12.5 10.5V16M9.5 13V16M15.5 8V16M6.5 16V16.5M18.5 16V16.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>

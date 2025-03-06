@@ -21,7 +21,9 @@ const About = () => {
       
       <Navbar />
       
-      <HireMeButton />
+      <div className="absolute bottom-8 left-8 z-50">
+        <HireMeButton />
+      </div>
       
       <motion.main 
         initial={{ opacity: 0 }}
@@ -30,10 +32,11 @@ const About = () => {
         className="relative z-10"
       >
         <motion.div 
-          className="glass-morphism max-w-xs mx-0 p-4 rounded-xl mt-24 ml-6 mb-10"
+          className="bg-transparent max-w-xs mx-0 p-4 rounded-xl mt-24 ml-6 mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
+          style={{ cursor: 'default' }}
         >
           <motion.div 
             className="mb-3 inline-block"
@@ -54,7 +57,7 @@ const About = () => {
           />
         </motion.div>
         
-        <div className="h-[70vh]"></div> {/* Increased spacer to allow keyboard interaction */}
+        <div className="h-[90vh]"></div> {/* Increased spacer to push skills section down */}
         
         <motion.div 
           className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative"
@@ -76,6 +79,12 @@ const About = () => {
           </motion.div>
         </motion.div>
       </motion.main>
+      
+      <style jsx global>{`
+        body {
+          cursor: none;
+        }
+      `}</style>
     </div>
   );
 };
