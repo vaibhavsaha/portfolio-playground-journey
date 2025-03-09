@@ -18,8 +18,8 @@ const KeyboardBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   
-  const rotateX = useTransform(mouseY, [-300, 300], [35, -35]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-30, 30]);
+  const rotateX = useTransform(mouseY, [-300, 300], [40, -40]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-35, 35]);
 
   // Define keyboard keys with developer-related labels
   const keys: KeyProps[] = [
@@ -77,23 +77,24 @@ const KeyboardBackground = () => {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="w-full h-full absolute inset-0 overflow-hidden" ref={containerRef}>
+    <div className="w-full h-full absolute inset-0 overflow-hidden flex items-center justify-center" ref={containerRef}>
       <motion.div 
         className="relative w-full h-full flex items-center justify-center"
         style={{ 
           rotateX, 
           rotateY,
-          perspective: 1200,
+          perspective: 1500,
           transformStyle: 'preserve-3d',
-          translateZ: -100,
+          translateZ: -120,
         }}
       >
         <div 
-          className="relative w-[90%] h-[80%] bg-black/30 rounded-xl backdrop-blur-sm p-4"
+          className="relative w-4/5 h-4/5 bg-black/40 rounded-xl backdrop-blur-sm p-6 border border-white/5"
           style={{
-            transform: 'rotateX(35deg) rotateZ(-25deg) scale(1.7)', 
+            transform: 'rotateX(40deg) rotateZ(-25deg) scale(1.8)', 
             transformStyle: 'preserve-3d',
-            transformOrigin: 'center center'
+            transformOrigin: 'center center',
+            boxShadow: '0 25px 50px rgba(0,0,0,0.8)'
           }}
         >
           {keys.map((key, index) => (
@@ -104,21 +105,21 @@ const KeyboardBackground = () => {
                   ? 'font-bold text-white shadow-lg' 
                   : 'bg-white/10 backdrop-blur-sm text-white border border-white/20'}`}
               style={{
-                left: `${key.x * 50}px`,
-                top: `${key.y * 50}px`,
-                width: `${(key.width || 1) * 50}px`,
-                height: `${(key.height || 1) * 50}px`,
+                left: `${key.x * 60}px`,
+                top: `${key.y * 60}px`,
+                width: `${(key.width || 1) * 60}px`,
+                height: `${(key.height || 1) * 60}px`,
                 backgroundColor: key.special ? key.color || '#444' : undefined,
                 zIndex: hoveredKey === key.label ? 10 : 1,
                 transformStyle: 'preserve-3d',
-                transform: 'translateZ(15px)',
-                boxShadow: '0 15px 30px rgba(0,0,0,0.6)',
-                fontSize: key.special ? '16px' : '14px',
+                transform: 'translateZ(25px)',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.7)',
+                fontSize: key.special ? '18px' : '16px',
               }}
               whileHover={{
                 scale: 1.5,
                 zIndex: 10,
-                translateZ: 40
+                translateZ: 50
               }}
               onHoverStart={() => setHoveredKey(key.label)}
               onHoverEnd={() => setHoveredKey(null)}

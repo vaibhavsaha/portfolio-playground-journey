@@ -32,7 +32,7 @@ const About = () => {
         className="relative z-10"
       >
         <motion.div 
-          className="bg-transparent max-w-xs mx-0 p-4 rounded-xl mt-24 ml-6 mb-10"
+          className="bg-transparent max-w-xs mx-0 p-4 rounded-xl mt-24 ml-6 mb-10 backdrop-blur-sm border border-white/5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
