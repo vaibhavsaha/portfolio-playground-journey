@@ -32,7 +32,7 @@ const About = () => {
         className="relative z-10"
       >
         <motion.div 
-          className="absolute top-10 left-10 bg-white/10 max-w-sm p-6 rounded-xl backdrop-blur-md border border-white/10"
+          className="absolute top-10 left-10 bg-black/20 max-w-sm p-6 rounded-xl backdrop-blur-sm border border-white/5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -44,23 +44,23 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <span className="px-3 py-1 rounded-full bg-foreground/10 backdrop-blur-sm text-sm font-medium text-white">
+            <span className="px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm text-sm font-medium text-gray-200">
               About Me
             </span>
           </motion.div>
           
           <TextGenerateEffect
             words="Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!"
-            className="text-sm text-white" 
+            className="text-sm text-gray-300 font-mono" 
             duration={1.5}
             filter={true}
           />
         </motion.div>
         
-        <div className="h-[100vh]"></div> {/* Increased spacer to push skills section down */}
+        <div className="h-[100vh]"></div>
         
         <motion.div 
-          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative"
+          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative bg-black/20 backdrop-blur-sm border border-white/5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -70,7 +70,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.8 }}
           >
-            <h3 className="text-xl font-medium mb-6 text-white">Skills</h3>
+            <h3 className="text-xl font-medium mb-6 text-gray-200 font-mono">Skills</h3>
             <div className="flex flex-wrap gap-8"> 
               {skills.map((skill, index) => (
                 <AnimatedSkill key={index} skill={skill} index={index} />

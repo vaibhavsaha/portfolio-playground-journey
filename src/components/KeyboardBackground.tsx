@@ -21,31 +21,45 @@ const KeyboardBackground = () => {
   const [handPosition, setHandPosition] = useState({ x: 0, y: 0 });
   const [showHand, setShowHand] = useState(false);
   
-  const rotateX = useTransform(mouseY, [-300, 300], [15, -15]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15]);
+  const rotateX = useTransform(mouseY, [-300, 300], [25, -25]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-25, 25]);
 
   // Define keyboard keys with developer-related labels
   const keys: KeyProps[] = [
-    // First row - centered and spaced out more
-    { label: 'Developer', x: 1, y: 1, width: 2, special: true, color: '#9b87f5' },
-    { label: 'Prototyper', x: 4, y: 1, width: 2, special: true, color: '#8B5CF6' },
-    { label: 'Designer', x: 7, y: 1, width: 2, special: true, color: '#33C3F0' },
+    // Row 1
+    { label: 'Developer', x: 1, y: 1, width: 1.8, special: true, color: '#333' },
+    { label: 'Prototyper', x: 3.1, y: 1, width: 1.8, special: true, color: '#333' },
+    { label: 'Designer', x: 5.2, y: 1, width: 1.8, special: true, color: '#333' },
+    { label: 'ESC', x: 7.3, y: 1, width: 0.8, color: '#222' },
     
-    // Second row
-    { label: 'UI/UX', x: 1, y: 3, width: 1.5, special: true, color: '#F97316' },
-    { label: 'Graphic', x: 3.5, y: 3, width: 1.5, special: true, color: '#0EA5E9' },
-    { label: 'Branding', x: 6, y: 3, width: 2, special: true, color: '#D946EF' },
+    // Row 2
+    { label: 'UI/UX', x: 1, y: 2.3, width: 1.2, special: true, color: '#333' },
+    { label: 'Graphic', x: 2.5, y: 2.3, width: 1.2, special: true, color: '#333' },
+    { label: 'CSS', x: 4, y: 2.3, width: 1, special: true, color: '#333' },
+    { label: 'HTML', x: 5.3, y: 2.3, width: 1, special: true, color: '#333' },
+    { label: 'TAB', x: 6.6, y: 2.3, width: 1.5, color: '#222' },
     
-    // Third row - operational keys
-    { label: '+', x: 1, y: 5, width: 1 },
-    { label: '-', x: 3, y: 5, width: 1 },
-    { label: '*', x: 5, y: 5, width: 1 },
-    { label: '/', x: 7, y: 5, width: 1 },
+    // Row 3
+    { label: 'React', x: 1, y: 3.6, width: 1.2, special: true, color: '#333' },
+    { label: 'Angular', x: 2.5, y: 3.6, width: 1.3, special: true, color: '#333' },
+    { label: 'Node', x: 4.1, y: 3.6, width: 1, special: true, color: '#333' },
+    { label: 'SHIFT', x: 5.4, y: 3.6, width: 2.7, color: '#222' },
     
-    // Fourth row - more dev specific keys
-    { label: 'ESC', x: 1, y: 7, width: 1.2 },
-    { label: 'TAB', x: 3, y: 7, width: 1.5 },
-    { label: 'SHIFT', x: 5.5, y: 7, width: 2.5 },
+    // Row 4
+    { label: 'ALT', x: 1, y: 4.9, width: 0.8, color: '#222' },
+    { label: 'CTRL', x: 2.1, y: 4.9, width: 1, color: '#222' },
+    { label: 'SPACE', x: 3.4, y: 4.9, width: 3, color: '#222' },
+    { label: 'ENTER', x: 6.7, y: 4.9, width: 1.4, color: '#222' },
+    
+    // Row 5 (function keys)
+    { label: 'F1', x: 1, y: 0, width: 0.7, color: '#222' },
+    { label: 'F2', x: 1.9, y: 0, width: 0.7, color: '#222' },
+    { label: 'F3', x: 2.8, y: 0, width: 0.7, color: '#222' },
+    { label: 'F4', x: 3.7, y: 0, width: 0.7, color: '#222' },
+    { label: 'F5', x: 4.6, y: 0, width: 0.7, color: '#222' },
+    { label: 'F6', x: 5.5, y: 0, width: 0.7, color: '#222' },
+    { label: 'F7', x: 6.4, y: 0, width: 0.7, color: '#222' },
+    { label: 'F8', x: 7.3, y: 0, width: 0.7, color: '#222' },
   ];
 
   useEffect(() => {
@@ -84,56 +98,70 @@ const KeyboardBackground = () => {
   return (
     <div className="w-full h-full absolute inset-0 overflow-hidden flex items-center justify-center" ref={containerRef}>
       <motion.div 
-        className="relative w-[80vw] h-[80vh] flex items-center justify-center"
+        className="relative w-[90vw] h-[80vh] flex items-center justify-center"
         style={{ 
           rotateX, 
           rotateY,
-          perspective: 1500,
+          perspective: 2000,
           transformStyle: 'preserve-3d'
         }}
       >
         <div 
           ref={keyboardRef}
-          className="relative w-full h-full bg-black/30 rounded-xl backdrop-blur-sm p-8 border border-white/10"
+          className="relative w-full h-full flex items-center justify-center"
           style={{
-            transform: 'rotateX(10deg) rotateZ(0deg)', 
+            transform: 'rotateX(20deg) rotateZ(0deg)', 
             transformStyle: 'preserve-3d',
             transformOrigin: 'center center',
-            boxShadow: '0 30px 60px rgba(0,0,0,0.8)'
           }}
         >
-          {keys.map((key, index) => (
-            <motion.div
-              key={index}
-              className={`absolute rounded-lg flex items-center justify-center
-                ${key.special 
-                  ? 'font-bold text-white shadow-lg' 
-                  : 'bg-[#333] text-white'}`}
-              style={{
-                left: `${key.x * 80}px`,
-                top: `${key.y * 80}px`,
-                width: `${(key.width || 1) * 80}px`,
-                height: `${(key.height || 1) * 80}px`,
-                backgroundColor: key.special ? key.color || '#333' : undefined,
-                zIndex: hoveredKey === key.label ? 10 : 1,
-                transformStyle: 'preserve-3d',
-                transform: 'translateZ(15px)',
-                boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
-                fontSize: key.special ? '20px' : '18px',
-                cursor: 'pointer'
-              }}
-              whileHover={{
-                scale: 1.3,
-                zIndex: 10,
-                translateZ: 30,
-                backgroundColor: '#4CAF50'
-              }}
-              onHoverStart={() => setHoveredKey(key.label)}
-              onHoverEnd={() => setHoveredKey(null)}
-            >
-              {key.label}
-            </motion.div>
-          ))}
+          <div className="relative w-[85%] h-[70%] bg-black/40 rounded-xl backdrop-blur-sm border border-white/20"
+            style={{
+              transform: 'translateZ(-30px)',
+              boxShadow: '0 30px 80px rgba(0,0,0,0.8)',
+              transformStyle: 'preserve-3d'
+            }}
+          >
+            {keys.map((key, index) => (
+              <motion.div
+                key={index}
+                className={`absolute rounded-lg flex items-center justify-center
+                  ${key.special 
+                    ? 'font-bold text-white shadow-lg' 
+                    : 'bg-[#222] text-white font-mono'}`}
+                style={{
+                  left: `${key.x * 11}%`,
+                  top: `${key.y * 15}%`,
+                  width: `${(key.width || 1) * 10}%`,
+                  height: `${(key.height || 1) * 14}%`,
+                  backgroundColor: key.color || '#333',
+                  zIndex: hoveredKey === key.label ? 10 : 1,
+                  transformStyle: 'preserve-3d',
+                  transform: 'translateZ(15px)',
+                  boxShadow: '0 6px 0 rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.3)',
+                  fontSize: key.special ? (key.width && key.width > 1.5 ? '20px' : '16px') : '14px',
+                  cursor: 'pointer',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  borderBottom: '3px solid rgba(0,0,0,0.5)'
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  zIndex: 10,
+                  translateZ: 25,
+                  backgroundColor: '#4a4a4a'
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  translateY: 3,
+                  boxShadow: '0 2px 0 rgba(0,0,0,0.5), 0 2px 5px rgba(0,0,0,0.3)'
+                }}
+                onHoverStart={() => setHoveredKey(key.label)}
+                onHoverEnd={() => setHoveredKey(null)}
+              >
+                {key.label}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </motion.div>
       
