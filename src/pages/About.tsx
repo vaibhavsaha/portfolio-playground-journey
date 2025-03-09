@@ -32,14 +32,14 @@ const About = () => {
         className="relative z-10"
       >
         <motion.div 
-          className="bg-transparent max-w-xs mx-0 p-4 rounded-xl mt-24 ml-6 mb-10 backdrop-blur-sm border border-white/5"
+          className="absolute top-10 left-10 bg-white/10 max-w-sm p-6 rounded-xl backdrop-blur-md border border-white/10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           style={{ cursor: 'default' }}
         >
           <motion.div 
-            className="mb-3 inline-block"
+            className="mb-4 inline-block"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -57,7 +57,7 @@ const About = () => {
           />
         </motion.div>
         
-        <div className="h-[90vh]"></div> {/* Increased spacer to push skills section down */}
+        <div className="h-[100vh]"></div> {/* Increased spacer to push skills section down */}
         
         <motion.div 
           className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative"
@@ -80,7 +80,7 @@ const About = () => {
         </motion.div>
       </motion.main>
       
-      {/* Instead of using the style tag with jsx and global attributes, adding a style tag with regular CSS */}
+      {/* Custom cursor style */}
       <style dangerouslySetInnerHTML={{ __html: `
         body {
           cursor: none;

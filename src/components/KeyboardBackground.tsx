@@ -16,48 +16,36 @@ const KeyboardBackground = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const keyboardRef = useRef<HTMLDivElement>(null);
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
+  const [handPosition, setHandPosition] = useState({ x: 0, y: 0 });
+  const [showHand, setShowHand] = useState(false);
   
-  const rotateX = useTransform(mouseY, [-300, 300], [40, -40]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-35, 35]);
+  const rotateX = useTransform(mouseY, [-300, 300], [15, -15]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15]);
 
   // Define keyboard keys with developer-related labels
   const keys: KeyProps[] = [
-    // First row
-    { label: 'ESC', x: 0, y: 0, width: 1.2 },
-    { label: 'F1', x: 1.3, y: 0 },
-    { label: 'F2', x: 2.3, y: 0 },
-    { label: 'F3', x: 3.3, y: 0 },
+    // First row - centered and spaced out more
+    { label: 'Developer', x: 1, y: 1, width: 2, special: true, color: '#9b87f5' },
+    { label: 'Prototyper', x: 4, y: 1, width: 2, special: true, color: '#8B5CF6' },
+    { label: 'Designer', x: 7, y: 1, width: 2, special: true, color: '#33C3F0' },
     
     // Second row
-    { label: '`', x: 0, y: 1.2 },
-    { label: '+', x: 1, y: 1.2 },
-    { label: '-', x: 2, y: 1.2 },
-    { label: '*', x: 3, y: 1.2 },
+    { label: 'UI/UX', x: 1, y: 3, width: 1.5, special: true, color: '#F97316' },
+    { label: 'Graphic', x: 3.5, y: 3, width: 1.5, special: true, color: '#0EA5E9' },
+    { label: 'Branding', x: 6, y: 3, width: 2, special: true, color: '#D946EF' },
     
-    // Third row
-    { label: 'TAB', x: 0, y: 2.4, width: 1.5 },
-    { label: 'Developer', x: 1.6, y: 2.4, width: 2, special: true, color: '#9b87f5' },
-    { label: '', x: 3.7, y: 2.4 },
+    // Third row - operational keys
+    { label: '+', x: 1, y: 5, width: 1 },
+    { label: '-', x: 3, y: 5, width: 1 },
+    { label: '*', x: 5, y: 5, width: 1 },
+    { label: '/', x: 7, y: 5, width: 1 },
     
-    // Fourth row
-    { label: 'CAPS', x: 0, y: 3.6, width: 1.8 },
-    { label: 'Designer', x: 1.9, y: 3.6, width: 2, special: true, color: '#33C3F0' },
-    { label: '', x: 4, y: 3.6 },
-    
-    // Fifth row
-    { label: 'SHIFT', x: 0, y: 4.8, width: 2.5 },
-    { label: 'UI/UX', x: 2.6, y: 4.8, width: 1.5, special: true, color: '#F97316' },
-    { label: 'Branding', x: 4.2, y: 4.8, width: 2, special: true, color: '#D946EF' },
-    
-    // Sixth row
-    { label: 'CTRL', x: 0, y: 6, width: 1.5 },
-    { label: 'Prototyper', x: 1.6, y: 6, width: 4, special: true, color: '#8B5CF6' },
-    
-    // Add more special keys
-    { label: 'GraphicDesign', x: 6.2, y: 2.4, width: 2, height: 2, special: true, color: '#0EA5E9' },
-    { label: 'Dev', x: 6.2, y: 4.5, width: 1, special: true, color: '#9b87f5' },
-    { label: 'UX', x: 7.3, y: 4.5, width: 1, special: true, color: '#F97316' },
+    // Fourth row - more dev specific keys
+    { label: 'ESC', x: 1, y: 7, width: 1.2 },
+    { label: 'TAB', x: 3, y: 7, width: 1.5 },
+    { label: 'SHIFT', x: 5.5, y: 7, width: 2.5 },
   ];
 
   useEffect(() => {
@@ -66,6 +54,23 @@ const KeyboardBackground = () => {
         const rect = containerRef.current.getBoundingClientRect();
         mouseX.set(e.clientX - rect.left - rect.width / 2);
         mouseY.set(e.clientY - rect.top - rect.height / 2);
+        
+        // Check if mouse is over the keyboard area
+        if (keyboardRef.current) {
+          const keyboardRect = keyboardRef.current.getBoundingClientRect();
+          setShowHand(
+            e.clientX >= keyboardRect.left &&
+            e.clientX <= keyboardRect.right &&
+            e.clientY >= keyboardRect.top &&
+            e.clientY <= keyboardRect.bottom
+          );
+          
+          // Update hand position relative to the container
+          setHandPosition({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+          });
+        }
       }
     };
 
@@ -79,22 +84,22 @@ const KeyboardBackground = () => {
   return (
     <div className="w-full h-full absolute inset-0 overflow-hidden flex items-center justify-center" ref={containerRef}>
       <motion.div 
-        className="relative w-full h-full flex items-center justify-center"
+        className="relative w-[80vw] h-[80vh] flex items-center justify-center"
         style={{ 
           rotateX, 
           rotateY,
           perspective: 1500,
-          transformStyle: 'preserve-3d',
-          translateZ: -120,
+          transformStyle: 'preserve-3d'
         }}
       >
         <div 
-          className="relative w-4/5 h-4/5 bg-black/40 rounded-xl backdrop-blur-sm p-6 border border-white/5"
+          ref={keyboardRef}
+          className="relative w-full h-full bg-black/30 rounded-xl backdrop-blur-sm p-8 border border-white/10"
           style={{
-            transform: 'rotateX(40deg) rotateZ(-25deg) scale(1.8)', 
+            transform: 'rotateX(10deg) rotateZ(0deg)', 
             transformStyle: 'preserve-3d',
             transformOrigin: 'center center',
-            boxShadow: '0 25px 50px rgba(0,0,0,0.8)'
+            boxShadow: '0 30px 60px rgba(0,0,0,0.8)'
           }}
         >
           {keys.map((key, index) => (
@@ -103,23 +108,25 @@ const KeyboardBackground = () => {
               className={`absolute rounded-lg flex items-center justify-center
                 ${key.special 
                   ? 'font-bold text-white shadow-lg' 
-                  : 'bg-white/10 backdrop-blur-sm text-white border border-white/20'}`}
+                  : 'bg-[#333] text-white'}`}
               style={{
-                left: `${key.x * 60}px`,
-                top: `${key.y * 60}px`,
-                width: `${(key.width || 1) * 60}px`,
-                height: `${(key.height || 1) * 60}px`,
-                backgroundColor: key.special ? key.color || '#444' : undefined,
+                left: `${key.x * 80}px`,
+                top: `${key.y * 80}px`,
+                width: `${(key.width || 1) * 80}px`,
+                height: `${(key.height || 1) * 80}px`,
+                backgroundColor: key.special ? key.color || '#333' : undefined,
                 zIndex: hoveredKey === key.label ? 10 : 1,
                 transformStyle: 'preserve-3d',
-                transform: 'translateZ(25px)',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.7)',
-                fontSize: key.special ? '18px' : '16px',
+                transform: 'translateZ(15px)',
+                boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
+                fontSize: key.special ? '20px' : '18px',
+                cursor: 'pointer'
               }}
               whileHover={{
-                scale: 1.5,
+                scale: 1.3,
                 zIndex: 10,
-                translateZ: 50
+                translateZ: 30,
+                backgroundColor: '#4CAF50'
               }}
               onHoverStart={() => setHoveredKey(key.label)}
               onHoverEnd={() => setHoveredKey(null)}
@@ -132,19 +139,18 @@ const KeyboardBackground = () => {
       
       {/* Pointing hand cursor */}
       <motion.div 
-        className="absolute pointer-events-none z-20"
+        className="absolute pointer-events-none z-50"
         style={{ 
-          left: mouseX, 
-          top: mouseY,
+          left: handPosition.x,
+          top: handPosition.y,
           translateX: '-50%',
           translateY: '-50%',
-          scale: hoveredKey ? 1.8 : 1.4
+          opacity: showHand ? 1 : 0,
+          transition: 'opacity 0.3s ease',
+          fontSize: '50px'
         }}
       >
-        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M13 6.5V11M22 12V12C22 17.5228 17.5228 22 12 22V22C6.47715 22 2 17.5228 2 12V12C2 6.47715 6.47715 2 12 2V2C17.5228 2 22 6.47715 22 12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M12.5 10.5V16M9.5 13V16M15.5 8V16M6.5 16V16.5M18.5 16V16.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        🖐
       </motion.div>
     </div>
   );
