@@ -32,7 +32,7 @@ const About = () => {
         className="relative z-10"
       >
         <motion.div 
-          className="absolute top-10 left-10 bg-black/20 max-w-sm p-6 rounded-xl backdrop-blur-sm border border-white/5"
+          className="absolute top-6 left-6 bg-black/10 max-w-sm p-6 rounded-xl backdrop-blur-sm border border-white/5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -60,7 +60,7 @@ const About = () => {
         <div className="h-[100vh]"></div>
         
         <motion.div 
-          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative bg-black/20 backdrop-blur-sm border border-white/5"
+          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative bg-black/10 backdrop-blur-sm border border-white/5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
