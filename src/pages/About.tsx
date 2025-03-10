@@ -12,10 +12,16 @@ const About = () => {
     "React", "Solana", "Third Web", "Linux", "Version Control"
   ];
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-x-hidden overflow-y-auto">
       <div className="fixed inset-0 z-0 bg-black">
-        {/* Background with keyboard */}
         <KeyboardBackground />
       </div>
       
@@ -32,11 +38,13 @@ const About = () => {
         className="relative z-10"
       >
         <motion.div 
-          className="absolute top-6 left-6 bg-black/10 max-w-sm p-6 rounded-xl backdrop-blur-sm border border-white/5"
+          id="about"
+          className="absolute top-6 left-6 bg-black/5 max-w-sm p-6 rounded-xl backdrop-blur-sm border border-white/5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          style={{ cursor: 'default' }}
+          style={{ cursor: 'pointer' }}
+          onClick={() => scrollToSection('about')}
         >
           <motion.div 
             className="mb-4 inline-block"
@@ -44,26 +52,28 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <span className="px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm text-sm font-medium text-gray-200">
+            <span className="px-3 py-1 rounded-full bg-black/20 backdrop-blur-sm text-sm font-medium text-gray-200">
               About Me
             </span>
           </motion.div>
           
           <TextGenerateEffect
             words="Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!"
-            className="text-sm text-gray-300 font-mono" 
+            className="text-sm text-gray-300 font-mono"
             duration={1.5}
             filter={true}
           />
         </motion.div>
         
-        <div className="h-[100vh]"></div>
+        <div className="h-[100vh]" id="experience"></div>
         
         <motion.div 
-          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative bg-black/10 backdrop-blur-sm border border-white/5"
+          id="skills"
+          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative bg-black/5 backdrop-blur-sm border border-white/5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
+          onClick={() => scrollToSection('skills')}
         >
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
@@ -71,7 +81,7 @@ const About = () => {
             transition={{ duration: 0.5, delay: 1.8 }}
           >
             <h3 className="text-xl font-medium mb-6 text-gray-200 font-mono">Skills</h3>
-            <div className="flex flex-wrap gap-8"> 
+            <div className="flex flex-wrap gap-8">
               {skills.map((skill, index) => (
                 <AnimatedSkill key={index} skill={skill} index={index} />
               ))}
@@ -79,13 +89,6 @@ const About = () => {
           </motion.div>
         </motion.div>
       </motion.main>
-      
-      {/* Custom cursor style */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        body {
-          cursor: none;
-        }
-      `}} />
     </div>
   );
 };
