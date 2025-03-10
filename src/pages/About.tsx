@@ -39,7 +39,7 @@ const About = () => {
       >
         <motion.div 
           id="about"
-          className="absolute top-6 left-6 bg-black/5 max-w-sm p-6 rounded-xl backdrop-blur-sm border border-white/5"
+          className="absolute top-6 left-6 bg-black/10 max-w-sm p-6 rounded-xl backdrop-blur-sm border border-white/5" // More transparent background
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -59,7 +59,7 @@ const About = () => {
           
           <TextGenerateEffect
             words="Hi, I'm Simran—a developer, web designer, and caffeine enthusiast. I create sleek, responsive websites and turn problems into polished solutions. Let's build something amazing!"
-            className="text-sm text-gray-300 font-mono"
+            className="text-sm text-gray-300 font-mono" // Keeping font-mono for better keyboard aesthetic match
             duration={1.5}
             filter={true}
           />
@@ -69,7 +69,7 @@ const About = () => {
         
         <motion.div 
           id="skills"
-          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative bg-black/5 backdrop-blur-sm border border-white/5"
+          className="glass-morphism max-w-4xl mx-auto p-8 rounded-2xl my-20 z-10 relative bg-black/10 backdrop-blur-sm border border-white/5" // More transparent background
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
